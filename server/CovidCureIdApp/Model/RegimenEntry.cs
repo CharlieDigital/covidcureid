@@ -1,3 +1,6 @@
+using System;
+using System.Text.Json;
+
 namespace CovidCureIdApp.Model
 {
     /// <summary>
@@ -27,6 +30,16 @@ namespace CovidCureIdApp.Model
         public override string EntryType {
             get => "Regimen";
             set { /* Needed for serialization */ }
+        }
+
+        /// <summary>
+        ///     Static factory method to create an instance from a JSON element.
+        /// </summary>
+        /// <param name="json">The root JSON element from the CURE ID data files.</param>
+        /// <returns>An instance constructed from the JSON element.</returns>
+        internal static RegimenEntry From(JsonElement json)
+        {
+            return null;
         }
     }
 }

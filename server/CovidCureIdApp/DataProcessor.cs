@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Text.Json;
 using CovidCureIdApp.Model;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
@@ -27,12 +28,38 @@ namespace CovidCureIdApp
             [Queue("covidcureid-queue-regimen")] ICollector<RegimenEntry> regimenEntryCollector,
             ILogger log)
         {
-            log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {blob.Length} Bytes");
+            log.LogInformation($"Processing file\n Name:{name} \n Size: {blob.Length} Bytes");
 
+            string[] nameParts = name.Split('-', 3);
+            int drugId = Convert.ToInt32(nameParts[1]);
+            string drugName = nameParts[2].Replace(".json", string.Empty);
+
+            JsonDocument json = JsonDocument.Parse(blob);
+            JsonElement root = json.RootElement;
+
+            int caseCount = root.GetArrayLength();
+
+            log.LogInformation($"  Drug: {drugName} ({drugId}) has {caseCount} cases");
+
+            // Process each case.
+            for(int i = 0; i < caseCount; i++) {
+                JsonElement caseRoot = root[i];
+                int caseId = caseRoot.GetProperty("id").GetInt32();
+
+                log.LogInformation($"    Case: {caseId}");
+
+                // Create an entry for the primary drug associated with the case (using the case file)
+                DrugEntry drugEntry = DrugEntry.From(drugId, drugName, caseRoot);
+
+                log.LogInformation($"      {JsonSerializer.Serialize(drugEntry, drugEntry.GetType(), new JsonSerializerOptions { WriteIndented = true })}");
+                log.LogInformation($"        {drugEntry.AgeLowerBound} - {drugEntry.AgeUpperBound}");
+
+                // Create an entry for the regimen
+            }
         }
 
         /// <summary>
-        ///     Processes a regimen entry placed on the queue.
+        ///     Processes a regimen entry placed on the queue.  The purpose of the queue is to throttle the writes to the database.
         /// </summary>
         [FunctionName("ProcessRegimenEntry")]
         public static void ProcessRegimenEntry(
@@ -40,11 +67,13 @@ namespace CovidCureIdApp
             [CosmosDB(databaseName: "CovidCureId", collectionName: "CaseFiles", ConnectionStringSetting = "CovidCureIdCosmosDb")] out dynamic document,
             ILogger log)
         {
-            document = new { id = Guid.NewGuid(), name = "Something", cureId = 1234 };
+            // Check to see if there is already an entry for this regimen and do not duplicate the regimen entry
+
+            document = entry;
         }
 
         /// <summary>
-        ///     Processes a drug entry placed on the queue.
+        ///     Processes a drug entry placed on the queue.  The purpose of the queue is o throttle the writes to the database.
         /// </summary>
         [FunctionName("ProcessDrugEntry")]
         public static void ProcessDrugEntry(
@@ -52,7 +81,7 @@ namespace CovidCureIdApp
             [CosmosDB(databaseName: "CovidCureId", collectionName: "CaseFiles", ConnectionStringSetting = "CovidCureIdCosmosDb")] out dynamic document,
             ILogger log)
         {
-            document = new { id = Guid.NewGuid(), name = "Something", cureId = 1234 };
+            document = entry;
         }
     }
 }

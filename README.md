@@ -4,11 +4,11 @@
 
 The idea for this application is to extract the information from the CURE ID application which is managed by the FDA.
 
-The CURE ID application contains case report forms (CRFs) for treatments for COVID (and many other diseases) using so-called off-label usage of the drugs.
+The [CURE ID](https://cure.ncats.io/explore) application contains case report forms (CRFs) for treatments for COVID (and many other diseases) using so-called off-label usage of the drugs.
 
 These are usages for which there may not yet be FDA approval but in some circumstances, the treatments may be the best option available.
 
-## Organization
+## Code Organization
 
 The `server` directory contains the files for the server side of the application.  This is built using C# and Azure Functions.
 
@@ -20,18 +20,21 @@ If you do not already have an Azure account, you will need to create one and gra
 
 We will need the following resources:
 
-1. CosmosDB - This is where we will store our data.  You will need to grab the [Azure CosmosDB Emulator](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator) for local testing.
-2. Storage - This is where we will push the raw files AND where we will keep the static application files from `web`. You will also need to grab the [Azure Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) for local testing.
-3. Functions - When the files are pushed into Storage, this will trigger a Function to process the file and move the data into CosmosDB.  See the next step.
+1. **CosmosDB** - This is where we will store our data.  You will need to grab the [Azure CosmosDB Emulator](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator) for local testing.
+2. **Storage** - This is where we will push the raw files AND where we will keep the static application files from `web`. You will also need to grab the [Azure Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) for local testing.
+3. **Functions** - When the files are pushed into Storage, this will trigger a Function to process the file and move the data into CosmosDB.  See the next step.
 
 ## Setup
+
+*These steps cover the initial project setup and are not required for development since they will have already been performed.  See **Development** below for the development flow*
 
 The application requires [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash).
 
 1. From the `server` directory in a command line, run `func init CovidCureIdApp` to initialize the Azure Functions application.
 2. From the `CovidCureIdApp` directory, run `dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage`
-3. From the `CovidCureIdApp` directory, run `dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB`
-4. Create a directory `Functions` under `CovidCureIdApp` and then run `func new` to create a new Function
+3. From the `CovidCureIdApp` directory, run `dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage.Queues --prerelease`
+4. From the `CovidCureIdApp` directory, run `dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB`
+5. Create a directory `Functions` under `CovidCureIdApp` and then run `func new` to create new Functions
 
 To create the locally emulated blob storage, use the following:
 
@@ -47,6 +50,14 @@ Next, we will initialize the local CosmosDB using the command:
 az cosmosdb database create --db-name CovidCureId --key "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==" --url-connection "https://localhost:8081"
 
 az cosmosdb collection create --db-name CovidCureId --collection-name CaseFiles --key "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==" --url-connection "https://localhost:8081" --partition-key-path /cureId
+```
+
+Then we provision the Azure Storage Queues which are used for queueing and throttling the write throughput to Cosmos on data import:
+
+```
+az storage queue create --name covidcureid-queue-regimen --connection-string "UseDevelopmentStorage=true"
+
+az storage queue create --name covidcureid-queue-drug --connection-string "UseDevelopmentStorage=true"
 ```
 
 ## Downloading/Refreshing Data Files
@@ -72,9 +83,12 @@ The script `load-data.js` will perform the following actions:
 
 1. Delete the Azure Storage container `covidcureid-raw-files` which contains the raw JSON files from CURE ID
 2. Delete the Azure CosmosDB database
-3. Create the Azure Storage container `covidcureid-raw-files`
-4. Create the Azure CosmosDB database `CovidCureId`
-5. Create the Azure CosmosDB collection `CaseFiles`
+3. Delete the Azure Storage queues
+4. Create the Azure Storage container `covidcureid-raw-files`
+5. Create the Azure Storage queue `covidcureid-queue-drug`
+6. Create the Azure Storage queue `covidcureid-queue-regimen`
+7. Create the Azure CosmosDB database `CovidCureId`
+8. Create the Azure CosmosDB collection `CaseFiles`
 
 It can be used to effectively reset the environment.
 
@@ -101,7 +115,7 @@ But we also want to store the combined outcomes.  For example, a patient that re
 
 Without a transactional mechanism on the database itself, we need to ensure that we only create one unique entry for each case.
 
-To do so, Azure Service Bus Queues with session IDs are used to queue the entries to ensure once-only entry.  The session ID will be of the case ID combined with the IDs of the drugs in ascending order.
+To do so, Azure Service Bus Queues with session IDs can be used to queue the entries to ensure once-only entry.  The session ID will be of the case ID combined with the IDs of the drugs in ascending order.
 
 *An alternate approach is to simply use a `DISTINCT` constraint on the query and allow the duplicates to be created as this simplifies the architecture at the expense of higher cost queries (for a small dataset like this, it is not an issue and the better design choice, but definitely the queue based mechanism is better for a larger dataset)*
 
@@ -128,6 +142,7 @@ For extremely large datasets, this may not work very well due to the limitations
 
 # References
 
+* https://cure.ncats.io/explore
 * https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local
 * https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-output
 * https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-how-to
