@@ -1,1 +1,1105 @@
-[{"id":6284,"regimens":[{"id":12106,"duration":{"id":6104,"approximate_duration":null,"dates_unknown":false},"drug":{"id":8342,"name":"Hydroxychloroquine","url":"cure-api2.ncats.io/v1/drugs/8342","rxNorm_id":null,"notes":null},"use_drug":[{"id":9433,"answer":"To treat a disease other than the one for which the drug is approved","answer_other":"","regimen":12106},{"id":9434,"answer":"In a novel combination with another drug","answer_other":"","regimen":12106}],"created":"2020-10-21T14:57:59.166613Z","updated":"2020-10-21T18:07:31.973887Z","dose":"","frequency":"","route":"","severity":"Inpatient","severity_detail":"","comments":null,"report":6284},{"id":12107,"duration":{"id":6105,"approximate_duration":null,"dates_unknown":false},"drug":{"id":6122,"name":"Azithromycin","url":"cure-api2.ncats.io/v1/drugs/6122","rxNorm_id":null,"notes":null},"use_drug":[{"id":9435,"answer":"To treat a disease other than the one for which the drug is approved","answer_other":"","regimen":12107},{"id":9436,"answer":"In a novel combination with another drug","answer_other":"","regimen":12107}],"created":"2020-10-21T14:57:59.175634Z","updated":"2020-10-21T18:07:31.984091Z","dose":"","frequency":"","route":"","severity":"Inpatient","severity_detail":"","comments":null,"report":6284},{"id":12108,"duration":{"id":6106,"approximate_duration":null,"dates_unknown":false},"drug":{"id":5600,"name":"Acetaminophen","url":"cure-api2.ncats.io/v1/drugs/5600","rxNorm_id":null,"notes":null},"use_drug":[{"id":9437,"answer":"To treat a disease other than the one for which the drug is approved","answer_other":"","regimen":12108},{"id":9438,"answer":"In a novel combination with another drug","answer_other":"","regimen":12108}],"created":"2020-10-21T14:57:59.182827Z","updated":"2020-10-21T18:07:31.992887Z","dose":"","frequency":"","route":"","severity":"Outpatient","severity_detail":"","comments":null,"report":6284},{"id":12110,"duration":{"id":6108,"approximate_duration":null,"dates_unknown":false},"drug":{"id":10776,"name":"Tocilizumab","url":"cure-api2.ncats.io/v1/drugs/10776","rxNorm_id":null,"notes":null},"use_drug":[{"id":9441,"answer":"To treat a disease other than the one for which the drug is approved","answer_other":"","regimen":12110}],"created":"2020-10-21T14:57:59.196581Z","updated":"2020-10-21T18:07:32.001296Z","dose":"600 mg","frequency":"1 dose","route":"IV","severity":"ICU/Critical Care","severity_detail":"Patient was intubated and while in the ICU, also required hemodynamic support with vasopressors","comments":null,"report":6284}],"site_of_infection":[],"specific_site":[],"how_outcome":[{"id":8270,"answer":"Clinical assessment","answer_other":"","report":6284}],"how_diagnosis":[{"id":14072,"answer":"PCR","answer_other":"","report":6284},{"id":14073,"answer":"Clinical assessment","answer_other":"","report":6284},{"id":14074,"answer":"Imaging","answer_other":"","report":6284}],"author_username":"Maggie McCoy","resistant_drugs":[],"combo_drugs":[],"organisms":[{"id":1887,"name":"Severe acute respiratory syndrome coronavirus 2 (sars-cov-2)"}],"disease_name":"COVID-19","author_qualification":"Medical Doctor","author_affiliation":"None","author_country":"","outcome_computed":"Improved","previous_drugs":[],"comments":[],"article_language":"","why_new_way":[{"id":4345,"answer":"There is no standard/approved therapy for this disease","answer_other":"","report":6284},{"id":4346,"answer":"Co-Infection or Complex Co-morbidities","answer_other":"","report":6284}],"adverse_event_outcome":[],"is_author":false,"cross_linked_diseases":[],"races":[],"created":"2020-10-21T14:55:37.137231Z","updated":"2020-10-21T18:07:31.927031Z","title":null,"status":"Approved","anonymous":false,"published":false,"pubmed_id":null,"doi":"","article_url":null,"pub_year":null,"published_authors":"","article_author_email":"wingerchuk.dean@mayo.edu","journal":"","abstract":"","article_type":"","study_type":"Case Report","number_of_patients":null,"article_patient_number":"","full_text_available":false,"outcome":"Patient improved","surgery":"No","age":"51-60 years","sex":"Female","ethnicity":null,"country_contracted":"United States","country_treated":"United States","began_treatment_year":"2020","hiv":false,"asthma":false,"lung_disease":false,"diabetes_mellitus":false,"hypertension":false,"cardiovascular_disease":false,"chronic_renal_disease":false,"chronic_liver_disease":false,"immunosuppressant_drugs":true,"intellectual_disability":false,"smoker":false,"other_immunodeficiency":false,"other_comorbid":"Multiple Sclerosis","pregnant":false,"unknown":false,"site_of_disease":"Lungs","clinical_syndrome":"Pneumonia, respiratory tract infection","severity":null,"prev_treatment":null,"unusual":"This case describes a patient with MS who developed COVID-19 while treated with fingolimod, which she had been taking for nine years to treat her MS. After suspension of fingolimod, she developed CRS and acute respiratory distress syndrome (ARDS) and was successfully treated with tocilizumab.","drug_treatment_features":"","have_adverse_events":false,"adverse_events":"","when_outcome":"At the time the treatment was completed","follow_up_period":null,"relapse":"","reminder":false,"when_reminder":"1 week","additional_info":"Patient was diagnosed with SARS-CoV-2 and advised to self-isolate at home, taking acetaminophen. She returned several days later with worsening dyspnea and multifocal pneumonia. Fingolimod was discontinued when she was admitted. Hydroxychloroquine and azithromycin were initiated and after five days, her condition worsened. The patient then received one dose of intravenous tocilizumab and did not receive corticosteroids. Fingolimod was reinitiated prior to discharge, 18 days after discontinuation. At the follow up video visit one week after discharge, the patient continued self-isolation, and she reported hyposmia and dysgeusia.","previously_treated":"","flagged":false,"other_coinfections":"","disease":630,"drugs":[5600,6122,8342,10776]},{"id":6610,"regimens":[{"id":13157,"duration":{"id":7047,"approximate_duration":null,"dates_unknown":false},"drug":{"id":5600,"name":"Acetaminophen","url":"cure-api2.ncats.io/v1/drugs/5600","rxNorm_id":null,"notes":null},"use_drug":[{"id":11714,"answer":"It was not used in a new way","answer_other":"","regimen":13157}],"created":"2020-11-30T19:41:24.440645Z","updated":"2020-12-02T16:07:26.849144Z","dose":null,"frequency":"","route":"IV Drip","severity":"Inpatient","severity_detail":null,"comments":null,"report":6610},{"id":13158,"duration":{"id":7048,"approximate_duration":null,"dates_unknown":false},"drug":{"id":6675,"name":"Ceftriaxone","url":"cure-api2.ncats.io/v1/drugs/6675","rxNorm_id":null,"notes":null},"use_drug":[{"id":11715,"answer":"Other","answer_other":"Started empirically","regimen":13158}],"created":"2020-11-30T19:41:24.448197Z","updated":"2020-12-02T16:07:26.849996Z","dose":null,"frequency":"","route":"","severity":"Inpatient","severity_detail":null,"comments":null,"report":6610},{"id":13159,"duration":{"id":7049,"approximate_duration":null,"dates_unknown":false},"drug":{"id":11121,"name":"Vancomycin","url":"cure-api2.ncats.io/v1/drugs/11121","rxNorm_id":11124,"notes":""},"use_drug":[{"id":11716,"answer":"Other","answer_other":"Started empirically","regimen":13159}],"created":"2020-11-30T19:41:24.454893Z","updated":"2020-12-02T16:07:26.850867Z","dose":null,"frequency":"","route":"","severity":"Inpatient","severity_detail":null,"comments":null,"report":6610},{"id":13160,"duration":{"id":7050,"approximate_duration":null,"dates_unknown":false},"drug":{"id":11301,"name":"Remdesivir","url":"cure-api2.ncats.io/v1/drugs/11301","rxNorm_id":null,"notes":null},"use_drug":[{"id":11470,"answer":"To treat a disease other than the one for which the drug is approved","answer_other":"","regimen":13160},{"id":11471,"answer":"In a novel combination with another drug","answer_other":"","regimen":13160}],"created":"2020-11-30T19:41:24.461194Z","updated":"2020-12-02T16:07:26.851719Z","dose":null,"frequency":"","route":"","severity":"ICU/Critical Care","severity_detail":null,"comments":null,"report":6610},{"id":13161,"duration":{"id":7051,"approximate_duration":null,"dates_unknown":false},"drug":{"id":8342,"name":"Hydroxychloroquine","url":"cure-api2.ncats.io/v1/drugs/8342","rxNorm_id":null,"notes":null},"use_drug":[{"id":11472,"answer":"To treat a disease other than the one for which the drug is approved","answer_other":"","regimen":13161},{"id":11473,"answer":"In a novel combination with another drug","answer_other":"","regimen":13161}],"created":"2020-11-30T19:41:24.467400Z","updated":"2020-12-02T16:07:26.766483Z","dose":"","frequency":"","route":"","severity":"ICU/Critical Care","severity_detail":"Mechanical ventilation","comments":null,"report":6610},{"id":13162,"duration":{"id":7052,"approximate_duration":null,"dates_unknown":false},"drug":{"id":6122,"name":"Azithromycin","url":"cure-api2.ncats.io/v1/drugs/6122","rxNorm_id":null,"notes":null},"use_drug":[{"id":11474,"answer":"To treat a disease other than the one for which the drug is approved","answer_other":"","regimen":13162},{"id":11475,"answer":"In a novel combination with another drug","answer_other":"","regimen":13162}],"created":"2020-11-30T19:41:24.473555Z","updated":"2020-12-02T16:07:26.772078Z","dose":"","frequency":"","route":"","severity":"ICU/Critical Care","severity_detail":"Mechanical ventilation","comments":null,"report":6610},{"id":13163,"duration":{"id":7053,"approximate_duration":null,"dates_unknown":false},"drug":{"id":7479,"name":"Dobutamine","url":"cure-api2.ncats.io/v1/drugs/7479","rxNorm_id":null,"notes":null},"use_drug":[{"id":11717,"answer":"Other","answer_other":"For heart failure","regimen":13163}],"created":"2020-11-30T19:41:24.479793Z","updated":"2020-12-02T16:07:26.852560Z","dose":null,"frequency":"","route":"","severity":"ICU/Critical Care","severity_detail":"Mechanical ventilation","comments":null,"report":6610},{"id":13164,"duration":{"id":7054,"approximate_duration":null,"dates_unknown":false},"drug":{"id":8433,"name":"Indomethacin","url":"cure-api2.ncats.io/v1/drugs/8433","rxNorm_id":null,"notes":null},"use_drug":[{"id":11718,"answer":"Other","answer_other":"To treat acute myopericarditis","regimen":13164}],"created":"2020-11-30T19:41:24.486003Z","updated":"2020-12-02T16:07:26.853355Z","dose":"50mg","frequency":"TID","route":"","severity":"ICU/Critical Care","severity_detail":"Mechanical ventilation","comments":null,"report":6610},{"id":13165,"duration":{"id":7055,"approximate_duration":null,"dates_unknown":false},"drug":{"id":9077,"name":"Methylprednisolone","url":"cure-api2.ncats.io/v1/drugs/9077","rxNorm_id":null,"notes":null},"use_drug":[{"id":11719,"answer":"Other","answer_other":"for myocardial injury and recurrent myopericarditis","regimen":13165}],"created":"2020-11-30T19:41:24.492310Z","updated":"2020-12-02T16:07:26.854208Z","dose":null,"frequency":"","route":"IV","severity":"ICU/Critical Care","severity_detail":"Mechanical ventilation","comments":null,"report":6610},{"id":13166,"duration":{"id":7056,"approximate_duration":null,"dates_unknown":false},"drug":{"id":7023,"name":"Colchicine","url":"cure-api2.ncats.io/v1/drugs/7023","rxNorm_id":null,"notes":null},"use_drug":[{"id":11720,"answer":"Other","answer_other":"for myocardial injury and recurrent myopericarditis","regimen":13166}],"created":"2020-11-30T19:41:24.498591Z","updated":"2020-12-02T16:07:26.855003Z","dose":null,"frequency":"","route":"","severity":"ICU/Critical Care","severity_detail":"Mechanical ventilation","comments":null,"report":6610}],"site_of_infection":[],"specific_site":[],"how_outcome":[],"how_diagnosis":[{"id":14905,"answer":"Clinical assessment","answer_other":"","report":6610},{"id":14906,"answer":"Imaging","answer_other":"","report":6610},{"id":14907,"answer":"PCR","answer_other":"","report":6610}],"author_username":"Cure Admin","resistant_drugs":[],"combo_drugs":[],"organisms":[{"id":1887,"name":"Severe acute respiratory syndrome coronavirus 2 (sars-cov-2)"}],"disease_name":"COVID-19","author_qualification":"Other Healthcare Professional","author_affiliation":"FDA/NCATS","author_country":"United States","outcome_computed":"Deteriorated","previous_drugs":[],"comments":[],"article_language":"English","why_new_way":[{"id":4787,"answer":"There is no standard/approved therapy for this disease","answer_other":"","report":6610},{"id":4788,"answer":"Unusual disease presentation","answer_other":"","report":6610}],"adverse_event_outcome":[],"is_author":false,"cross_linked_diseases":[{"id":396,"name":"Pneumonia"}],"races":[],"created":"2020-11-30T19:37:33.457497Z","updated":"2020-12-02T16:07:26.734167Z","title":"Coronavirus (COVID-19) Fulminant Myopericarditis and Acute Respiratory Distress Syndrome (ARDS) in a Middle-Aged Male Patient.","status":"Approved","anonymous":false,"published":true,"pubmed_id":32607304,"doi":"10.7759/cureus.8808","article_url":"https://pubmed.ncbi.nlm.nih.gov/32607304/","pub_year":2020,"published_authors":"Hussain H\r\nFadel A\r\nAlwaeli H\r\nGuardiola V","article_author_email":"hussain1986hussain@yahoo.com","journal":"Cureus","abstract":"Myopericarditis remains a prominent infectious inflammatory disorder throughout a patient's lifetime. Moreover, viral pathogens have been proven to be the leading contributors to myopericarditis in the pediatric and adult populations. Despite the current comprehensive knowledge of myocardial injury in viral and post-viral myopericarditis, the cellular and molecular mechanisms of SARS-CoV-2-induced myopericarditis are poorly understood. This report presents a case of coronavirus (COVID-19) fulminant myopericarditis and acute respiratory distress syndrome (ARDS) in a middle-aged male patient: a 50-SOME-old man with a history of hypertension who arrived to the emergency department with a dry cough, fatigue, dyspnea, and a fever. A real-time reverse transcriptase-polymerase chain reaction (RT-PCR) assay confirmed a diagnosis of COVID-19 infection, resulting in the patient's admission to the airborne isolation unit for clinical observation. When his condition began to deteriorate, the patient was transferred to the cardiac care unit after electrocardiography detected cardiac injury, demonstrating diffuse ST-segment elevation. Laboratory evaluations revealed elevated troponin T and BNP, with an echocardiogram indicating global left ventricular hypokinesia and a reduced ejection fraction. The patient was treated with hydroxychloroquine, azithromycin, dobutamine, remdesivir, and ventilatory support. This specific case highlights the severity and complications that may arise as a direct result of COVID-19 infection.          \r\n        Keywords:      \r\n                  ards; coronavirus disease (covid-19); diffuse st elevation; myocarditis; myopericarditis; sars-cov-2 (severe acute respiratory syndrome coronavirus -2).","article_type":"Original","study_type":"Case Report","number_of_patients":1,"article_patient_number":"","full_text_available":true,"outcome":"Patient deteriorated","surgery":"No","age":"51-60 years","sex":"Male","ethnicity":null,"country_contracted":"United States","country_treated":"United States","began_treatment_year":"2020","hiv":false,"asthma":false,"lung_disease":false,"diabetes_mellitus":false,"hypertension":true,"cardiovascular_disease":false,"chronic_renal_disease":false,"chronic_liver_disease":false,"immunosuppressant_drugs":false,"intellectual_disability":false,"smoker":false,"other_immunodeficiency":false,"other_comorbid":"","pregnant":false,"unknown":false,"site_of_disease":"Lungs, Heart","clinical_syndrome":"Pneumonia, dry cough, fatigue, dyspnea, and a fever, diffuse ST elevation, acute myopericarditis","severity":"ICU/Critical Care","prev_treatment":"","unusual":"Unusual disease manifestation by myopericarditis.","drug_treatment_features":"","have_adverse_events":false,"adverse_events":"","when_outcome":"At the time the treatment was completed","follow_up_period":null,"relapse":"No","reminder":false,"when_reminder":"1 week","additional_info":"","previously_treated":"","flagged":false,"other_coinfections":"","disease":630,"drugs":[5600,6122,6675,7023,7479,8342,8433,9077,11301,11121]},{"id":6663,"regimens":[{"id":13331,"duration":{"id":7220,"approximate_duration":"2 Days","dates_unknown":true},"drug":{"id":8342,"name":"Hydroxychloroquine","url":"cure-api2.ncats.io/v1/drugs/8342","rxNorm_id":null,"notes":null},"use_drug":[{"id":11831,"answer":"To treat a disease other than the one for which the drug is approved","answer_other":"","regimen":13331},{"id":11832,"answer":"In a novel combination with another drug","answer_other":"","regimen":13331}],"created":"2020-12-02T22:59:53.403553Z","updated":"2020-12-02T23:12:45.983980Z","dose":"200mg","frequency":"BID","route":"","severity":"Inpatient","severity_detail":"","comments":null,"report":6663},{"id":13332,"duration":{"id":7221,"approximate_duration":null,"dates_unknown":false},"drug":{"id":5600,"name":"Acetaminophen","url":"cure-api2.ncats.io/v1/drugs/5600","rxNorm_id":null,"notes":null},"use_drug":[{"id":11833,"answer":"To treat a disease other than the one for which the drug is approved","answer_other":"","regimen":13332},{"id":11834,"answer":"In a novel combination with another drug","answer_other":"","regimen":13332}],"created":"2020-12-02T22:59:53.411279Z","updated":"2020-12-02T23:12:45.990495Z","dose":"500mg","frequency":"q6h","route":"","severity":"Inpatient","severity_detail":"","comments":null,"report":6663},{"id":13333,"duration":{"id":7222,"approximate_duration":null,"dates_unknown":false},"drug":{"id":8783,"name":"Lopinavir-Ritonavir","url":"cure-api2.ncats.io/v1/drugs/8783","rxNorm_id":null,"notes":null},"use_drug":[{"id":11835,"answer":"To treat a disease other than the one for which the drug is approved","answer_other":"","regimen":13333},{"id":11836,"answer":"In a novel combination with another drug","answer_other":"","regimen":13333}],"created":"2020-12-02T22:59:53.417740Z","updated":"2020-12-02T23:12:45.996452Z","dose":"400mg","frequency":"BID","route":"","severity":"Inpatient","severity_detail":"","comments":null,"report":6663},{"id":13334,"duration":{"id":7223,"approximate_duration":null,"dates_unknown":false},"drug":{"id":8787,"name":"Loratadine","url":"cure-api2.ncats.io/v1/drugs/8787","rxNorm_id":null,"notes":null},"use_drug":[{"id":11837,"answer":"To treat a disease other than the one for which the drug is approved","answer_other":"","regimen":13334},{"id":11838,"answer":"In a novel combination with another drug","answer_other":"","regimen":13334}],"created":"2020-12-02T22:59:53.424082Z","updated":"2020-12-02T23:12:46.002928Z","dose":"10mg","frequency":"BID","route":"","severity":"Inpatient","severity_detail":"","comments":null,"report":6663},{"id":13335,"duration":{"id":7224,"approximate_duration":null,"dates_unknown":false},"drug":{"id":7425,"name":"Diphenhydramine","url":"cure-api2.ncats.io/v1/drugs/7425","rxNorm_id":null,"notes":null},"use_drug":[{"id":11839,"answer":"To treat a disease other than the one for which the drug is approved","answer_other":"","regimen":13335},{"id":11840,"answer":"In a novel combination with another drug","answer_other":"","regimen":13335}],"created":"2020-12-02T22:59:53.430183Z","updated":"2020-12-02T23:12:46.008596Z","dose":"50mg","frequency":"TID","route":"","severity":"Inpatient","severity_detail":"","comments":null,"report":6663}],"site_of_infection":[],"specific_site":[],"how_outcome":[{"id":8744,"answer":"Clinical assessment","answer_other":"","report":6663}],"how_diagnosis":[{"id":15032,"answer":"Clinical assessment","answer_other":"","report":6663},{"id":15033,"answer":"Imaging","answer_other":"","report":6663},{"id":15034,"answer":"PCR","answer_other":"","report":6663}],"author_username":"Paige Evans","resistant_drugs":[],"combo_drugs":[],"organisms":[{"id":1887,"name":"Severe acute respiratory syndrome coronavirus 2 (sars-cov-2)"}],"disease_name":"COVID-19","author_qualification":"Nurse","author_affiliation":"None","author_country":"","outcome_computed":"Improved","previous_drugs":[],"comments":[],"article_language":"English","why_new_way":[{"id":4851,"answer":"There is no standard/approved therapy for this disease","answer_other":"","report":6663},{"id":4852,"answer":"Unusual disease presentation","answer_other":"","report":6663}],"adverse_event_outcome":[{"id":90,"answer":"Hospitalization (initial or prolonged)","report":6663},{"id":91,"answer":"Required Intervention to Prevent Permanent Impairment/Damage","report":6663}],"is_author":false,"cross_linked_diseases":[{"id":550,"name":"Respiratory Tract Infections"}],"races":[],"created":"2020-12-02T22:51:37.225139Z","updated":"2020-12-02T23:12:45.975549Z","title":"Hydroxychloroquine-induced Stevens-Johnson syndrome in COVID-19: a rare case report.","status":"Approved","anonymous":false,"published":true,"pubmed_id":32617169,"doi":"10.1093/omcr/omaa042","article_url":"https://pubmed.ncbi.nlm.nih.gov/32617169/","pub_year":2020,"published_authors":"Davoodi L\r\nJafarpour H\r\nKazeminejad A\r\nSoleymani E\r\nAkbari Z\r\nRazavi A","article_author_email":"razavialireza33@gmail.com","journal":"Oxford medical case reports","abstract":"The international outbreak of respiratory illness termed coronavirus disease 2019 (COVID-19) began in December 2019 that has affected >0.8 million individuals. Self-limiting respiratory tract involvement, severe pneumonia, multiorgan failure and death are the spectrum of COVID-19. To date, there are no especial therapeutic agents for COVID-19 infections. One such medication includes the antimalarial hydroxychloroquine (HCQ), which recently reported as a possible therapy for shortening the duration of COVID-19 symptoms, reducing inflammatory reactions to infection, impairing the exacerbation of pneumonia and boosting lung imaging findings. Like all medications, HCQ has side effects and may occur in COVID-19 patients. Here, we report on the case of a 40-some-old woman, presented with fever and dry cough, who had COVID-19 and 2 days later presented with a pruritic erythematous maculopapular rash, which started from the distal of upper extremities and rapidly, involved the entire body.","article_type":"Original","study_type":"Case Report","number_of_patients":1,"article_patient_number":"","full_text_available":true,"outcome":"Patient was cured/recovered","surgery":"No","age":"41-50 years","sex":"Female","ethnicity":null,"country_contracted":"Iran, Islamic Republic of","country_treated":"Iran, Islamic Republic of","began_treatment_year":"2020","hiv":false,"asthma":false,"lung_disease":false,"diabetes_mellitus":false,"hypertension":false,"cardiovascular_disease":false,"chronic_renal_disease":false,"chronic_liver_disease":false,"immunosuppressant_drugs":false,"intellectual_disability":false,"smoker":false,"other_immunodeficiency":false,"other_comorbid":"","pregnant":false,"unknown":false,"site_of_disease":"Lungs, Skin","clinical_syndrome":"Respiratory tract infection, fever, dry cough, maculopapular rash and flat atypical targets diagnosed as Stevens-Johnson syndrome","severity":null,"prev_treatment":"","unusual":"A diagnosis of Stevens-Johnson syndrome as an adverse event of Hydroxychloroquine treatment for COVID-19.","drug_treatment_features":"","have_adverse_events":true,"adverse_events":"After two days of Hydroxychloroquine treatment , the patient presented with a pruritic erythematous maculopapular rash and flat atypical targets that started fromthe distal of upper extremities, rapidly involved the entire body and torn blisters that were only be seen as ulcers on orolabial area.\r\n\r\nThis adverse event was diagnosed as Stevens–Johnson syndrome (SJS).","when_outcome":"At the time the treatment was completed","follow_up_period":null,"relapse":"Unknown","reminder":false,"when_reminder":"1 week","additional_info":"Patient was discharged after five days with nonpruritic scalded skin on the distal of upper extremities","previously_treated":"","flagged":false,"other_coinfections":"","disease":630,"drugs":[5600,7425,8342,8783,8787]}]
+[
+    {
+        "id": 6284,
+        "regimens": [
+            {
+                "id": 12106,
+                "duration": {
+                    "id": 6104,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 8342,
+                    "name": "Hydroxychloroquine",
+                    "url": "cure-api2.ncats.io/v1/drugs/8342",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 9433,
+                        "answer": "To treat a disease other than the one for which the drug is approved",
+                        "answer_other": "",
+                        "regimen": 12106
+                    },
+                    {
+                        "id": 9434,
+                        "answer": "In a novel combination with another drug",
+                        "answer_other": "",
+                        "regimen": 12106
+                    }
+                ],
+                "created": "2020-10-21T14:57:59.166613Z",
+                "updated": "2020-10-21T18:07:31.973887Z",
+                "dose": "",
+                "frequency": "",
+                "route": "",
+                "severity": "Inpatient",
+                "severity_detail": "",
+                "comments": null,
+                "report": 6284
+            },
+            {
+                "id": 12107,
+                "duration": {
+                    "id": 6105,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 6122,
+                    "name": "Azithromycin",
+                    "url": "cure-api2.ncats.io/v1/drugs/6122",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 9435,
+                        "answer": "To treat a disease other than the one for which the drug is approved",
+                        "answer_other": "",
+                        "regimen": 12107
+                    },
+                    {
+                        "id": 9436,
+                        "answer": "In a novel combination with another drug",
+                        "answer_other": "",
+                        "regimen": 12107
+                    }
+                ],
+                "created": "2020-10-21T14:57:59.175634Z",
+                "updated": "2020-10-21T18:07:31.984091Z",
+                "dose": "",
+                "frequency": "",
+                "route": "",
+                "severity": "Inpatient",
+                "severity_detail": "",
+                "comments": null,
+                "report": 6284
+            },
+            {
+                "id": 12108,
+                "duration": {
+                    "id": 6106,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 5600,
+                    "name": "Acetaminophen",
+                    "url": "cure-api2.ncats.io/v1/drugs/5600",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 9437,
+                        "answer": "To treat a disease other than the one for which the drug is approved",
+                        "answer_other": "",
+                        "regimen": 12108
+                    },
+                    {
+                        "id": 9438,
+                        "answer": "In a novel combination with another drug",
+                        "answer_other": "",
+                        "regimen": 12108
+                    }
+                ],
+                "created": "2020-10-21T14:57:59.182827Z",
+                "updated": "2020-10-21T18:07:31.992887Z",
+                "dose": "",
+                "frequency": "",
+                "route": "",
+                "severity": "Outpatient",
+                "severity_detail": "",
+                "comments": null,
+                "report": 6284
+            },
+            {
+                "id": 12110,
+                "duration": {
+                    "id": 6108,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 10776,
+                    "name": "Tocilizumab",
+                    "url": "cure-api2.ncats.io/v1/drugs/10776",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 9441,
+                        "answer": "To treat a disease other than the one for which the drug is approved",
+                        "answer_other": "",
+                        "regimen": 12110
+                    }
+                ],
+                "created": "2020-10-21T14:57:59.196581Z",
+                "updated": "2020-10-21T18:07:32.001296Z",
+                "dose": "600 mg",
+                "frequency": "1 dose",
+                "route": "IV",
+                "severity": "ICU/Critical Care",
+                "severity_detail": "Patient was intubated and while in the ICU, also required hemodynamic support with vasopressors",
+                "comments": null,
+                "report": 6284
+            }
+        ],
+        "site_of_infection": [],
+        "specific_site": [],
+        "how_outcome": [
+            {
+                "id": 8270,
+                "answer": "Clinical assessment",
+                "answer_other": "",
+                "report": 6284
+            }
+        ],
+        "how_diagnosis": [
+            {
+                "id": 14072,
+                "answer": "PCR",
+                "answer_other": "",
+                "report": 6284
+            },
+            {
+                "id": 14073,
+                "answer": "Clinical assessment",
+                "answer_other": "",
+                "report": 6284
+            },
+            {
+                "id": 14074,
+                "answer": "Imaging",
+                "answer_other": "",
+                "report": 6284
+            }
+        ],
+        "author_username": "Maggie McCoy",
+        "resistant_drugs": [],
+        "combo_drugs": [],
+        "organisms": [
+            {
+                "id": 1887,
+                "name": "Severe acute respiratory syndrome coronavirus 2 (sars-cov-2)"
+            }
+        ],
+        "disease_name": "COVID-19",
+        "author_qualification": "Medical Doctor",
+        "author_affiliation": "None",
+        "author_country": "",
+        "outcome_computed": "Improved",
+        "previous_drugs": [],
+        "comments": [],
+        "article_language": "",
+        "why_new_way": [
+            {
+                "id": 4345,
+                "answer": "There is no standard/approved therapy for this disease",
+                "answer_other": "",
+                "report": 6284
+            },
+            {
+                "id": 4346,
+                "answer": "Co-Infection or Complex Co-morbidities",
+                "answer_other": "",
+                "report": 6284
+            }
+        ],
+        "adverse_event_outcome": [],
+        "is_author": false,
+        "cross_linked_diseases": [],
+        "races": [],
+        "created": "2020-10-21T14:55:37.137231Z",
+        "updated": "2020-10-21T18:07:31.927031Z",
+        "title": null,
+        "status": "Approved",
+        "anonymous": false,
+        "published": false,
+        "pubmed_id": null,
+        "doi": "",
+        "article_url": null,
+        "pub_year": null,
+        "published_authors": "",
+        "article_author_email": "wingerchuk.dean@mayo.edu",
+        "journal": "",
+        "abstract": "",
+        "article_type": "",
+        "study_type": "Case Report",
+        "number_of_patients": null,
+        "article_patient_number": "",
+        "full_text_available": false,
+        "outcome": "Patient improved",
+        "surgery": "No",
+        "age": "51-60 years",
+        "sex": "Female",
+        "ethnicity": null,
+        "country_contracted": "United States",
+        "country_treated": "United States",
+        "began_treatment_year": "2020",
+        "hiv": false,
+        "asthma": false,
+        "lung_disease": false,
+        "diabetes_mellitus": false,
+        "hypertension": false,
+        "cardiovascular_disease": false,
+        "chronic_renal_disease": false,
+        "chronic_liver_disease": false,
+        "immunosuppressant_drugs": true,
+        "intellectual_disability": false,
+        "smoker": false,
+        "other_immunodeficiency": false,
+        "other_comorbid": "Multiple Sclerosis",
+        "pregnant": false,
+        "unknown": false,
+        "site_of_disease": "Lungs",
+        "clinical_syndrome": "Pneumonia, respiratory tract infection",
+        "severity": null,
+        "prev_treatment": null,
+        "unusual": "This case describes a patient with MS who developed COVID-19 while treated with fingolimod, which she had been taking for nine years to treat her MS. After suspension of fingolimod, she developed CRS and acute respiratory distress syndrome (ARDS) and was successfully treated with tocilizumab.",
+        "drug_treatment_features": "",
+        "have_adverse_events": false,
+        "adverse_events": "",
+        "when_outcome": "At the time the treatment was completed",
+        "follow_up_period": null,
+        "relapse": "",
+        "reminder": false,
+        "when_reminder": "1 week",
+        "additional_info": "Patient was diagnosed with SARS-CoV-2 and advised to self-isolate at home, taking acetaminophen. She returned several days later with worsening dyspnea and multifocal pneumonia. Fingolimod was discontinued when she was admitted. Hydroxychloroquine and azithromycin were initiated and after five days, her condition worsened. The patient then received one dose of intravenous tocilizumab and did not receive corticosteroids. Fingolimod was reinitiated prior to discharge, 18 days after discontinuation. At the follow up video visit one week after discharge, the patient continued self-isolation, and she reported hyposmia and dysgeusia.",
+        "previously_treated": "",
+        "flagged": false,
+        "other_coinfections": "",
+        "disease": 630,
+        "drugs": [
+            5600,
+            6122,
+            8342,
+            10776
+        ]
+    },
+    {
+        "id": 6610,
+        "regimens": [
+            {
+                "id": 13157,
+                "duration": {
+                    "id": 7047,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 5600,
+                    "name": "Acetaminophen",
+                    "url": "cure-api2.ncats.io/v1/drugs/5600",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 11714,
+                        "answer": "It was not used in a new way",
+                        "answer_other": "",
+                        "regimen": 13157
+                    }
+                ],
+                "created": "2020-11-30T19:41:24.440645Z",
+                "updated": "2020-12-02T16:07:26.849144Z",
+                "dose": null,
+                "frequency": "",
+                "route": "IV Drip",
+                "severity": "Inpatient",
+                "severity_detail": null,
+                "comments": null,
+                "report": 6610
+            },
+            {
+                "id": 13158,
+                "duration": {
+                    "id": 7048,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 6675,
+                    "name": "Ceftriaxone",
+                    "url": "cure-api2.ncats.io/v1/drugs/6675",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 11715,
+                        "answer": "Other",
+                        "answer_other": "Started empirically",
+                        "regimen": 13158
+                    }
+                ],
+                "created": "2020-11-30T19:41:24.448197Z",
+                "updated": "2020-12-02T16:07:26.849996Z",
+                "dose": null,
+                "frequency": "",
+                "route": "",
+                "severity": "Inpatient",
+                "severity_detail": null,
+                "comments": null,
+                "report": 6610
+            },
+            {
+                "id": 13159,
+                "duration": {
+                    "id": 7049,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 11121,
+                    "name": "Vancomycin",
+                    "url": "cure-api2.ncats.io/v1/drugs/11121",
+                    "rxNorm_id": 11124,
+                    "notes": ""
+                },
+                "use_drug": [
+                    {
+                        "id": 11716,
+                        "answer": "Other",
+                        "answer_other": "Started empirically",
+                        "regimen": 13159
+                    }
+                ],
+                "created": "2020-11-30T19:41:24.454893Z",
+                "updated": "2020-12-02T16:07:26.850867Z",
+                "dose": null,
+                "frequency": "",
+                "route": "",
+                "severity": "Inpatient",
+                "severity_detail": null,
+                "comments": null,
+                "report": 6610
+            },
+            {
+                "id": 13160,
+                "duration": {
+                    "id": 7050,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 11301,
+                    "name": "Remdesivir",
+                    "url": "cure-api2.ncats.io/v1/drugs/11301",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 11470,
+                        "answer": "To treat a disease other than the one for which the drug is approved",
+                        "answer_other": "",
+                        "regimen": 13160
+                    },
+                    {
+                        "id": 11471,
+                        "answer": "In a novel combination with another drug",
+                        "answer_other": "",
+                        "regimen": 13160
+                    }
+                ],
+                "created": "2020-11-30T19:41:24.461194Z",
+                "updated": "2020-12-02T16:07:26.851719Z",
+                "dose": null,
+                "frequency": "",
+                "route": "",
+                "severity": "ICU/Critical Care",
+                "severity_detail": null,
+                "comments": null,
+                "report": 6610
+            },
+            {
+                "id": 13161,
+                "duration": {
+                    "id": 7051,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 8342,
+                    "name": "Hydroxychloroquine",
+                    "url": "cure-api2.ncats.io/v1/drugs/8342",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 11472,
+                        "answer": "To treat a disease other than the one for which the drug is approved",
+                        "answer_other": "",
+                        "regimen": 13161
+                    },
+                    {
+                        "id": 11473,
+                        "answer": "In a novel combination with another drug",
+                        "answer_other": "",
+                        "regimen": 13161
+                    }
+                ],
+                "created": "2020-11-30T19:41:24.467400Z",
+                "updated": "2020-12-02T16:07:26.766483Z",
+                "dose": "",
+                "frequency": "",
+                "route": "",
+                "severity": "ICU/Critical Care",
+                "severity_detail": "Mechanical ventilation",
+                "comments": null,
+                "report": 6610
+            },
+            {
+                "id": 13162,
+                "duration": {
+                    "id": 7052,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 6122,
+                    "name": "Azithromycin",
+                    "url": "cure-api2.ncats.io/v1/drugs/6122",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 11474,
+                        "answer": "To treat a disease other than the one for which the drug is approved",
+                        "answer_other": "",
+                        "regimen": 13162
+                    },
+                    {
+                        "id": 11475,
+                        "answer": "In a novel combination with another drug",
+                        "answer_other": "",
+                        "regimen": 13162
+                    }
+                ],
+                "created": "2020-11-30T19:41:24.473555Z",
+                "updated": "2020-12-02T16:07:26.772078Z",
+                "dose": "",
+                "frequency": "",
+                "route": "",
+                "severity": "ICU/Critical Care",
+                "severity_detail": "Mechanical ventilation",
+                "comments": null,
+                "report": 6610
+            },
+            {
+                "id": 13163,
+                "duration": {
+                    "id": 7053,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 7479,
+                    "name": "Dobutamine",
+                    "url": "cure-api2.ncats.io/v1/drugs/7479",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 11717,
+                        "answer": "Other",
+                        "answer_other": "For heart failure",
+                        "regimen": 13163
+                    }
+                ],
+                "created": "2020-11-30T19:41:24.479793Z",
+                "updated": "2020-12-02T16:07:26.852560Z",
+                "dose": null,
+                "frequency": "",
+                "route": "",
+                "severity": "ICU/Critical Care",
+                "severity_detail": "Mechanical ventilation",
+                "comments": null,
+                "report": 6610
+            },
+            {
+                "id": 13164,
+                "duration": {
+                    "id": 7054,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 8433,
+                    "name": "Indomethacin",
+                    "url": "cure-api2.ncats.io/v1/drugs/8433",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 11718,
+                        "answer": "Other",
+                        "answer_other": "To treat acute myopericarditis",
+                        "regimen": 13164
+                    }
+                ],
+                "created": "2020-11-30T19:41:24.486003Z",
+                "updated": "2020-12-02T16:07:26.853355Z",
+                "dose": "50mg",
+                "frequency": "TID",
+                "route": "",
+                "severity": "ICU/Critical Care",
+                "severity_detail": "Mechanical ventilation",
+                "comments": null,
+                "report": 6610
+            },
+            {
+                "id": 13165,
+                "duration": {
+                    "id": 7055,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 9077,
+                    "name": "Methylprednisolone",
+                    "url": "cure-api2.ncats.io/v1/drugs/9077",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 11719,
+                        "answer": "Other",
+                        "answer_other": "for myocardial injury and recurrent myopericarditis",
+                        "regimen": 13165
+                    }
+                ],
+                "created": "2020-11-30T19:41:24.492310Z",
+                "updated": "2020-12-02T16:07:26.854208Z",
+                "dose": null,
+                "frequency": "",
+                "route": "IV",
+                "severity": "ICU/Critical Care",
+                "severity_detail": "Mechanical ventilation",
+                "comments": null,
+                "report": 6610
+            },
+            {
+                "id": 13166,
+                "duration": {
+                    "id": 7056,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 7023,
+                    "name": "Colchicine",
+                    "url": "cure-api2.ncats.io/v1/drugs/7023",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 11720,
+                        "answer": "Other",
+                        "answer_other": "for myocardial injury and recurrent myopericarditis",
+                        "regimen": 13166
+                    }
+                ],
+                "created": "2020-11-30T19:41:24.498591Z",
+                "updated": "2020-12-02T16:07:26.855003Z",
+                "dose": null,
+                "frequency": "",
+                "route": "",
+                "severity": "ICU/Critical Care",
+                "severity_detail": "Mechanical ventilation",
+                "comments": null,
+                "report": 6610
+            }
+        ],
+        "site_of_infection": [],
+        "specific_site": [],
+        "how_outcome": [],
+        "how_diagnosis": [
+            {
+                "id": 14905,
+                "answer": "Clinical assessment",
+                "answer_other": "",
+                "report": 6610
+            },
+            {
+                "id": 14906,
+                "answer": "Imaging",
+                "answer_other": "",
+                "report": 6610
+            },
+            {
+                "id": 14907,
+                "answer": "PCR",
+                "answer_other": "",
+                "report": 6610
+            }
+        ],
+        "author_username": "Cure Admin",
+        "resistant_drugs": [],
+        "combo_drugs": [],
+        "organisms": [
+            {
+                "id": 1887,
+                "name": "Severe acute respiratory syndrome coronavirus 2 (sars-cov-2)"
+            }
+        ],
+        "disease_name": "COVID-19",
+        "author_qualification": "Other Healthcare Professional",
+        "author_affiliation": "FDA/NCATS",
+        "author_country": "United States",
+        "outcome_computed": "Deteriorated",
+        "previous_drugs": [],
+        "comments": [],
+        "article_language": "English",
+        "why_new_way": [
+            {
+                "id": 4787,
+                "answer": "There is no standard/approved therapy for this disease",
+                "answer_other": "",
+                "report": 6610
+            },
+            {
+                "id": 4788,
+                "answer": "Unusual disease presentation",
+                "answer_other": "",
+                "report": 6610
+            }
+        ],
+        "adverse_event_outcome": [],
+        "is_author": false,
+        "cross_linked_diseases": [
+            {
+                "id": 396,
+                "name": "Pneumonia"
+            }
+        ],
+        "races": [],
+        "created": "2020-11-30T19:37:33.457497Z",
+        "updated": "2020-12-02T16:07:26.734167Z",
+        "title": "Coronavirus (COVID-19) Fulminant Myopericarditis and Acute Respiratory Distress Syndrome (ARDS) in a Middle-Aged Male Patient.",
+        "status": "Approved",
+        "anonymous": false,
+        "published": true,
+        "pubmed_id": 32607304,
+        "doi": "10.7759/cureus.8808",
+        "article_url": "https://pubmed.ncbi.nlm.nih.gov/32607304/",
+        "pub_year": 2020,
+        "published_authors": "Hussain H\r\nFadel A\r\nAlwaeli H\r\nGuardiola V",
+        "article_author_email": "hussain1986hussain@yahoo.com",
+        "journal": "Cureus",
+        "abstract": "Myopericarditis remains a prominent infectious inflammatory disorder throughout a patient's lifetime. Moreover, viral pathogens have been proven to be the leading contributors to myopericarditis in the pediatric and adult populations. Despite the current comprehensive knowledge of myocardial injury in viral and post-viral myopericarditis, the cellular and molecular mechanisms of SARS-CoV-2-induced myopericarditis are poorly understood. This report presents a case of coronavirus (COVID-19) fulminant myopericarditis and acute respiratory distress syndrome (ARDS) in a middle-aged male patient: a 50-SOME-old man with a history of hypertension who arrived to the emergency department with a dry cough, fatigue, dyspnea, and a fever. A real-time reverse transcriptase-polymerase chain reaction (RT-PCR) assay confirmed a diagnosis of COVID-19 infection, resulting in the patient's admission to the airborne isolation unit for clinical observation. When his condition began to deteriorate, the patient was transferred to the cardiac care unit after electrocardiography detected cardiac injury, demonstrating diffuse ST-segment elevation. Laboratory evaluations revealed elevated troponin T and BNP, with an echocardiogram indicating global left ventricular hypokinesia and a reduced ejection fraction. The patient was treated with hydroxychloroquine, azithromycin, dobutamine, remdesivir, and ventilatory support. This specific case highlights the severity and complications that may arise as a direct result of COVID-19 infection.          \r\n        Keywords:      \r\n                  ards; coronavirus disease (covid-19); diffuse st elevation; myocarditis; myopericarditis; sars-cov-2 (severe acute respiratory syndrome coronavirus -2).",
+        "article_type": "Original",
+        "study_type": "Case Report",
+        "number_of_patients": 1,
+        "article_patient_number": "",
+        "full_text_available": true,
+        "outcome": "Patient deteriorated",
+        "surgery": "No",
+        "age": "51-60 years",
+        "sex": "Male",
+        "ethnicity": null,
+        "country_contracted": "United States",
+        "country_treated": "United States",
+        "began_treatment_year": "2020",
+        "hiv": false,
+        "asthma": false,
+        "lung_disease": false,
+        "diabetes_mellitus": false,
+        "hypertension": true,
+        "cardiovascular_disease": false,
+        "chronic_renal_disease": false,
+        "chronic_liver_disease": false,
+        "immunosuppressant_drugs": false,
+        "intellectual_disability": false,
+        "smoker": false,
+        "other_immunodeficiency": false,
+        "other_comorbid": "",
+        "pregnant": false,
+        "unknown": false,
+        "site_of_disease": "Lungs, Heart",
+        "clinical_syndrome": "Pneumonia, dry cough, fatigue, dyspnea, and a fever, diffuse ST elevation, acute myopericarditis",
+        "severity": "ICU/Critical Care",
+        "prev_treatment": "",
+        "unusual": "Unusual disease manifestation by myopericarditis.",
+        "drug_treatment_features": "",
+        "have_adverse_events": false,
+        "adverse_events": "",
+        "when_outcome": "At the time the treatment was completed",
+        "follow_up_period": null,
+        "relapse": "No",
+        "reminder": false,
+        "when_reminder": "1 week",
+        "additional_info": "",
+        "previously_treated": "",
+        "flagged": false,
+        "other_coinfections": "",
+        "disease": 630,
+        "drugs": [
+            5600,
+            6122,
+            6675,
+            7023,
+            7479,
+            8342,
+            8433,
+            9077,
+            11301,
+            11121
+        ]
+    },
+    {
+        "id": 6663,
+        "regimens": [
+            {
+                "id": 13331,
+                "duration": {
+                    "id": 7220,
+                    "approximate_duration": "2 Days",
+                    "dates_unknown": true
+                },
+                "drug": {
+                    "id": 8342,
+                    "name": "Hydroxychloroquine",
+                    "url": "cure-api2.ncats.io/v1/drugs/8342",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 11831,
+                        "answer": "To treat a disease other than the one for which the drug is approved",
+                        "answer_other": "",
+                        "regimen": 13331
+                    },
+                    {
+                        "id": 11832,
+                        "answer": "In a novel combination with another drug",
+                        "answer_other": "",
+                        "regimen": 13331
+                    }
+                ],
+                "created": "2020-12-02T22:59:53.403553Z",
+                "updated": "2020-12-02T23:12:45.983980Z",
+                "dose": "200mg",
+                "frequency": "BID",
+                "route": "",
+                "severity": "Inpatient",
+                "severity_detail": "",
+                "comments": null,
+                "report": 6663
+            },
+            {
+                "id": 13332,
+                "duration": {
+                    "id": 7221,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 5600,
+                    "name": "Acetaminophen",
+                    "url": "cure-api2.ncats.io/v1/drugs/5600",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 11833,
+                        "answer": "To treat a disease other than the one for which the drug is approved",
+                        "answer_other": "",
+                        "regimen": 13332
+                    },
+                    {
+                        "id": 11834,
+                        "answer": "In a novel combination with another drug",
+                        "answer_other": "",
+                        "regimen": 13332
+                    }
+                ],
+                "created": "2020-12-02T22:59:53.411279Z",
+                "updated": "2020-12-02T23:12:45.990495Z",
+                "dose": "500mg",
+                "frequency": "q6h",
+                "route": "",
+                "severity": "Inpatient",
+                "severity_detail": "",
+                "comments": null,
+                "report": 6663
+            },
+            {
+                "id": 13333,
+                "duration": {
+                    "id": 7222,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 8783,
+                    "name": "Lopinavir-Ritonavir",
+                    "url": "cure-api2.ncats.io/v1/drugs/8783",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 11835,
+                        "answer": "To treat a disease other than the one for which the drug is approved",
+                        "answer_other": "",
+                        "regimen": 13333
+                    },
+                    {
+                        "id": 11836,
+                        "answer": "In a novel combination with another drug",
+                        "answer_other": "",
+                        "regimen": 13333
+                    }
+                ],
+                "created": "2020-12-02T22:59:53.417740Z",
+                "updated": "2020-12-02T23:12:45.996452Z",
+                "dose": "400mg",
+                "frequency": "BID",
+                "route": "",
+                "severity": "Inpatient",
+                "severity_detail": "",
+                "comments": null,
+                "report": 6663
+            },
+            {
+                "id": 13334,
+                "duration": {
+                    "id": 7223,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 8787,
+                    "name": "Loratadine",
+                    "url": "cure-api2.ncats.io/v1/drugs/8787",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 11837,
+                        "answer": "To treat a disease other than the one for which the drug is approved",
+                        "answer_other": "",
+                        "regimen": 13334
+                    },
+                    {
+                        "id": 11838,
+                        "answer": "In a novel combination with another drug",
+                        "answer_other": "",
+                        "regimen": 13334
+                    }
+                ],
+                "created": "2020-12-02T22:59:53.424082Z",
+                "updated": "2020-12-02T23:12:46.002928Z",
+                "dose": "10mg",
+                "frequency": "BID",
+                "route": "",
+                "severity": "Inpatient",
+                "severity_detail": "",
+                "comments": null,
+                "report": 6663
+            },
+            {
+                "id": 13335,
+                "duration": {
+                    "id": 7224,
+                    "approximate_duration": null,
+                    "dates_unknown": false
+                },
+                "drug": {
+                    "id": 7425,
+                    "name": "Diphenhydramine",
+                    "url": "cure-api2.ncats.io/v1/drugs/7425",
+                    "rxNorm_id": null,
+                    "notes": null
+                },
+                "use_drug": [
+                    {
+                        "id": 11839,
+                        "answer": "To treat a disease other than the one for which the drug is approved",
+                        "answer_other": "",
+                        "regimen": 13335
+                    },
+                    {
+                        "id": 11840,
+                        "answer": "In a novel combination with another drug",
+                        "answer_other": "",
+                        "regimen": 13335
+                    }
+                ],
+                "created": "2020-12-02T22:59:53.430183Z",
+                "updated": "2020-12-02T23:12:46.008596Z",
+                "dose": "50mg",
+                "frequency": "TID",
+                "route": "",
+                "severity": "Inpatient",
+                "severity_detail": "",
+                "comments": null,
+                "report": 6663
+            }
+        ],
+        "site_of_infection": [],
+        "specific_site": [],
+        "how_outcome": [
+            {
+                "id": 8744,
+                "answer": "Clinical assessment",
+                "answer_other": "",
+                "report": 6663
+            }
+        ],
+        "how_diagnosis": [
+            {
+                "id": 15032,
+                "answer": "Clinical assessment",
+                "answer_other": "",
+                "report": 6663
+            },
+            {
+                "id": 15033,
+                "answer": "Imaging",
+                "answer_other": "",
+                "report": 6663
+            },
+            {
+                "id": 15034,
+                "answer": "PCR",
+                "answer_other": "",
+                "report": 6663
+            }
+        ],
+        "author_username": "Paige Evans",
+        "resistant_drugs": [],
+        "combo_drugs": [],
+        "organisms": [
+            {
+                "id": 1887,
+                "name": "Severe acute respiratory syndrome coronavirus 2 (sars-cov-2)"
+            }
+        ],
+        "disease_name": "COVID-19",
+        "author_qualification": "Nurse",
+        "author_affiliation": "None",
+        "author_country": "",
+        "outcome_computed": "Improved",
+        "previous_drugs": [],
+        "comments": [],
+        "article_language": "English",
+        "why_new_way": [
+            {
+                "id": 4851,
+                "answer": "There is no standard/approved therapy for this disease",
+                "answer_other": "",
+                "report": 6663
+            },
+            {
+                "id": 4852,
+                "answer": "Unusual disease presentation",
+                "answer_other": "",
+                "report": 6663
+            }
+        ],
+        "adverse_event_outcome": [
+            {
+                "id": 90,
+                "answer": "Hospitalization (initial or prolonged)",
+                "report": 6663
+            },
+            {
+                "id": 91,
+                "answer": "Required Intervention to Prevent Permanent Impairment/Damage",
+                "report": 6663
+            }
+        ],
+        "is_author": false,
+        "cross_linked_diseases": [
+            {
+                "id": 550,
+                "name": "Respiratory Tract Infections"
+            }
+        ],
+        "races": [],
+        "created": "2020-12-02T22:51:37.225139Z",
+        "updated": "2020-12-02T23:12:45.975549Z",
+        "title": "Hydroxychloroquine-induced Stevens-Johnson syndrome in COVID-19: a rare case report.",
+        "status": "Approved",
+        "anonymous": false,
+        "published": true,
+        "pubmed_id": 32617169,
+        "doi": "10.1093/omcr/omaa042",
+        "article_url": "https://pubmed.ncbi.nlm.nih.gov/32617169/",
+        "pub_year": 2020,
+        "published_authors": "Davoodi L\r\nJafarpour H\r\nKazeminejad A\r\nSoleymani E\r\nAkbari Z\r\nRazavi A",
+        "article_author_email": "razavialireza33@gmail.com",
+        "journal": "Oxford medical case reports",
+        "abstract": "The international outbreak of respiratory illness termed coronavirus disease 2019 (COVID-19) began in December 2019 that has affected >0.8 million individuals. Self-limiting respiratory tract involvement, severe pneumonia, multiorgan failure and death are the spectrum of COVID-19. To date, there are no especial therapeutic agents for COVID-19 infections. One such medication includes the antimalarial hydroxychloroquine (HCQ), which recently reported as a possible therapy for shortening the duration of COVID-19 symptoms, reducing inflammatory reactions to infection, impairing the exacerbation of pneumonia and boosting lung imaging findings. Like all medications, HCQ has side effects and may occur in COVID-19 patients. Here, we report on the case of a 40-some-old woman, presented with fever and dry cough, who had COVID-19 and 2 days later presented with a pruritic erythematous maculopapular rash, which started from the distal of upper extremities and rapidly, involved the entire body.",
+        "article_type": "Original",
+        "study_type": "Case Report",
+        "number_of_patients": 1,
+        "article_patient_number": "",
+        "full_text_available": true,
+        "outcome": "Patient was cured/recovered",
+        "surgery": "No",
+        "age": "41-50 years",
+        "sex": "Female",
+        "ethnicity": null,
+        "country_contracted": "Iran, Islamic Republic of",
+        "country_treated": "Iran, Islamic Republic of",
+        "began_treatment_year": "2020",
+        "hiv": false,
+        "asthma": false,
+        "lung_disease": false,
+        "diabetes_mellitus": false,
+        "hypertension": false,
+        "cardiovascular_disease": false,
+        "chronic_renal_disease": false,
+        "chronic_liver_disease": false,
+        "immunosuppressant_drugs": false,
+        "intellectual_disability": false,
+        "smoker": false,
+        "other_immunodeficiency": false,
+        "other_comorbid": "",
+        "pregnant": false,
+        "unknown": false,
+        "site_of_disease": "Lungs, Skin",
+        "clinical_syndrome": "Respiratory tract infection, fever, dry cough, maculopapular rash and flat atypical targets diagnosed as Stevens-Johnson syndrome",
+        "severity": null,
+        "prev_treatment": "",
+        "unusual": "A diagnosis of Stevens-Johnson syndrome as an adverse event of Hydroxychloroquine treatment for COVID-19.",
+        "drug_treatment_features": "",
+        "have_adverse_events": true,
+        "adverse_events": "After two days of Hydroxychloroquine treatment , the patient presented with a pruritic erythematous maculopapular rash and flat atypical targets that started fromthe distal of upper extremities, rapidly involved the entire body and torn blisters that were only be seen as ulcers on orolabial area.\r\n\r\nThis adverse event was diagnosed as Stevens–Johnson syndrome (SJS).",
+        "when_outcome": "At the time the treatment was completed",
+        "follow_up_period": null,
+        "relapse": "Unknown",
+        "reminder": false,
+        "when_reminder": "1 week",
+        "additional_info": "Patient was discharged after five days with nonpruritic scalded skin on the distal of upper extremities",
+        "previously_treated": "",
+        "flagged": false,
+        "other_coinfections": "",
+        "disease": 630,
+        "drugs": [
+            5600,
+            7425,
+            8342,
+            8783,
+            8787
+        ]
+    }
+]
