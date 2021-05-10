@@ -2,12 +2,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
+using CovidCureIdApp.DataAccess.Support;
 
 namespace CovidCureIdApp.Model
 {
     /// <summary>
     ///     Represents the regimen identified by a single case file in the CURE ID database
     /// </summary>
+    [Container("CaseFiles")]
     public class RegimenEntry : EntryBase
     {
         /// <summary>

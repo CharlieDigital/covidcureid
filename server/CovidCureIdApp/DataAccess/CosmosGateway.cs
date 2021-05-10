@@ -19,7 +19,7 @@ namespace CovidCureIdApp.DataAccess
     /// </remarks>
     public class CosmosGateway
     {
-        public static readonly string DatabaseName = "ToolStore";
+        public static readonly string DatabaseName = "CovidCureId";
 
         private CosmosClient _client;
         private readonly ILogger _log;

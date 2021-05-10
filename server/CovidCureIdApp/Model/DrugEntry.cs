@@ -1,5 +1,6 @@
 using System;
 using System.Text.Json;
+using CovidCureIdApp.DataAccess.Support;
 
 namespace CovidCureIdApp.Model
 {
@@ -7,6 +8,7 @@ namespace CovidCureIdApp.Model
     ///     Represents a single drug entry in the CURE ID database.  This data type breaks apart the
     ///     regimens into individual drugs.
     /// </summary>
+    [Container("CaseFiles")]
     public class DrugEntry : EntryBase
     {
         /// <summary>
