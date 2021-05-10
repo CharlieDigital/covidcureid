@@ -28,6 +28,8 @@ namespace CovidCureIdApp.Model
             set { /* Needed for serialization */ }
         }
 
+        public override string PartitionKey => DrugId.ToString();
+
         /// <summary>
         ///     Static factory method to create an instance from a JSON element.
         /// </summary>

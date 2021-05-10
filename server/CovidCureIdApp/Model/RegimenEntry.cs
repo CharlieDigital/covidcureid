@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text.Json;
 
 namespace CovidCureIdApp.Model
@@ -9,9 +11,9 @@ namespace CovidCureIdApp.Model
     public class RegimenEntry : EntryBase
     {
         /// <summary>
-        ///     The regimen ID as a combination of the individual drugs
+        ///     The regimen ID which is the same as the case ID in CURE.
         /// </summary>
-        public string RegimenId;
+        public int RegimenId;
 
         /// <summary>
         ///     The name of the regimen as a combination of the individual drug names
@@ -32,6 +34,8 @@ namespace CovidCureIdApp.Model
             set { /* Needed for serialization */ }
         }
 
+        public override string PartitionKey => RegimenId.ToString();
+
         /// <summary>
         ///     Static factory method to create an instance from a JSON element.
         /// </summary>
@@ -39,7 +43,36 @@ namespace CovidCureIdApp.Model
         /// <returns>An instance constructed from the JSON element.</returns>
         internal static RegimenEntry From(JsonElement json)
         {
-            return null;
+            string ageRange = json.GetProperty("age").GetString();
+            string[] ageParts = ageRange.Split('-');
+            int ageLower = Convert.ToInt32(ageParts[0]);
+            int ageUpper = Convert.ToInt32(ageParts[1].Split(' ')[0]);
+
+            // Construct the regimen ID based on the ordered IDs of the drugs in the regimen.
+            IEnumerable<Drug> drugs = json.GetProperty("regimens").EnumerateArray().Select(element => {
+                return new Drug {
+                    CureId = element.GetProperty("drug").GetProperty("id").GetInt32(),
+                    Name = element.GetProperty("drug").GetProperty("name").GetString()
+                };
+            }).OrderBy(drug => drug.CureId);
+
+            RegimenEntry entry = new RegimenEntry{
+                Id = Guid.NewGuid().ToString(),
+                RegimenId = json.GetProperty("id").GetInt32(),
+                RegimenName = String.Join("+", drugs.Select(d => d.Name)),
+                RegimenDrugs = drugs.ToArray(),
+                CureId = json.GetProperty("id").GetInt32(),
+                AgeLowerBound = ageLower,
+                AgeUpperBound = ageUpper,
+                Gender = json.GetProperty("sex").GetString(),
+                CountryTreated = json.GetProperty("country_treated").GetString(),
+                Races = new string[] {""},
+                Outcome = json.GetProperty("outcome").GetString(),
+                OutcomeComputed = json.GetProperty("outcome_computed").GetString(),
+                TreatmentYear = Convert.ToInt32(json.GetProperty("began_treatment_year").GetString())
+            };
+
+            return entry;
         }
     }
 }

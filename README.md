@@ -34,7 +34,9 @@ The application requires [Azure Functions Core Tools](https://docs.microsoft.com
 2. From the `CovidCureIdApp` directory, run `dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage`
 3. From the `CovidCureIdApp` directory, run `dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage.Queues --prerelease`
 4. From the `CovidCureIdApp` directory, run `dotnet add package Microsoft.Azure.WebJobs.Extensions.CosmosDB`
-5. Create a directory `Functions` under `CovidCureIdApp` and then run `func new` to create new Functions
+5. From the `CovidCureIdApp` directory, run `dotnet add package Microsoft.Azure.Cosmos`
+6. From the `CovidCureIdApp` directory, run `dotnet add package Microsoft.Azure.Functions.Extensions`
+7. Create a directory `Functions` under `CovidCureIdApp` and then run `func new` to create new Functions
 
 To create the locally emulated blob storage, use the following:
 
@@ -49,7 +51,7 @@ Next, we will initialize the local CosmosDB using the command:
 ```
 az cosmosdb database create --db-name CovidCureId --key "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==" --url-connection "https://localhost:8081"
 
-az cosmosdb collection create --db-name CovidCureId --collection-name CaseFiles --key "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==" --url-connection "https://localhost:8081" --partition-key-path /cureId
+az cosmosdb collection create --db-name CovidCureId --collection-name CaseFiles --key "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==" --url-connection "https://localhost:8081" --partition-key-path /PartitionKey
 ```
 
 Then we provision the Azure Storage Queues which are used for queueing and throttling the write throughput to Cosmos on data import:

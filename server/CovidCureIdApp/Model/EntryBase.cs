@@ -3,13 +3,8 @@ namespace CovidCureIdApp.Model
     /// <summary>
     ///     Base class for an entry whether it's a single drug or a regimen.
     /// </summary>
-    public abstract class EntryBase
+    public abstract class EntryBase : DomainEntityBase
     {
-        /// <summary>
-        ///     The ID for this entry.
-        /// </summary>
-        public string Id;
-
         /// <summary>
         ///     The root CURe ID that the entry is generated from.
         /// </summary>
