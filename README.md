@@ -149,3 +149,4 @@ For extremely large datasets, this may not work very well due to the limitations
 * https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-output
 * https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-how-to
 * https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings
+* https://github.com/Azure/azure-functions-host/wiki/host.json-(v2)

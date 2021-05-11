@@ -41,31 +41,40 @@ namespace CovidCureIdApp
         {
             log.LogInformation($"Processing file\n Name:{name} \n Size: {blob.Length} Bytes");
 
-            string[] nameParts = name.Split('-', 3);
-            int drugId = Convert.ToInt32(nameParts[1]);
-            string drugName = nameParts[2].Replace(".json", string.Empty);
+            int caseId = 0;
 
-            JsonDocument json = JsonDocument.Parse(blob);
-            JsonElement root = json.RootElement;
+            try {
+                string[] nameParts = name.Split('-', 3);
+                int drugId = Convert.ToInt32(nameParts[1]);
+                string drugName = nameParts[2].Replace(".json", string.Empty);
 
-            int caseCount = root.GetArrayLength();
+                JsonDocument json = JsonDocument.Parse(blob);
+                JsonElement root = json.RootElement;
 
-            log.LogInformation($"  Drug: {drugName} ({drugId}) has {caseCount} cases");
+                int caseCount = root.GetArrayLength();
 
-            // Process each case.
-            for(int i = 0; i < caseCount; i++) {
-                JsonElement caseRoot = root[i];
-                int caseId = caseRoot.GetProperty("id").GetInt32();
+                log.LogInformation($"  Drug: {drugName} ({drugId}) has {caseCount} cases");
 
-                log.LogInformation($"    Case: {caseId}");
+                // Process each case.
+                for(int i = 0; i < caseCount; i++) {
+                    JsonElement caseRoot = root[i];
+                    caseId = caseRoot.GetProperty("id").GetInt32();
 
-                // Create an entry for the primary drug associated with the case (using the case file)
-                DrugEntry drugEntry = DrugEntry.From(drugId, drugName, caseRoot);
-                drugEntryCollector.Add(drugEntry);
+                    log.LogInformation($"    Case: {caseId}");
 
-                // Create an entry for the regimen
-                RegimenEntry regimenEntry = RegimenEntry.From(caseRoot);
-                regimenEntryCollector.Add(regimenEntry);
+                    // Create an entry for the primary drug associated with the case (using the case file)
+                    DrugEntry drugEntry = DrugEntry.From(drugId, drugName, caseRoot);
+                    drugEntryCollector.Add(drugEntry);
+
+                    // Create an entry for the regimen
+                    RegimenEntry regimenEntry = RegimenEntry.From(caseRoot);
+                    regimenEntryCollector.Add(regimenEntry);
+                }
+            }
+            catch(Exception exception) {
+                log.LogError(exception, $"Error processing case ID: {caseId} in file: {name}");
+
+                throw;
             }
         }
 

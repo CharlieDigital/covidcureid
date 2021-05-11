@@ -41,23 +41,26 @@ namespace CovidCureIdApp.Model
         /// <returns>An instance constructed from the JSON element.</returns>
         public static DrugEntry From(int drugId, string drugName, JsonElement json) {
             string ageRange = json.GetProperty("age").GetString();
-            string[] ageParts = ageRange.Split('-');
-            int ageLower = Convert.ToInt32(ageParts[0]);
-            int ageUpper = Convert.ToInt32(ageParts[1].Split(' ')[0]);
+
+            Age age = new Age(ageRange);
+
+            int treatmentYear = json.GetProperty("began_treatment_year").GetString() == string.Empty?
+                json.GetProperty("pub_year").GetInt32() :
+                Convert.ToInt32(json.GetProperty("began_treatment_year").GetString());
 
             DrugEntry entry = new DrugEntry{
                 Id = Guid.NewGuid().ToString(),
                 DrugId = drugId,
                 DrugName = drugName,
                 CureId = json.GetProperty("id").GetInt32(),
-                AgeLowerBound = ageLower,
-                AgeUpperBound = ageUpper,
+                AgeLowerBound = age.Lower,
+                AgeUpperBound = age.Upper,
                 Gender = json.GetProperty("sex").GetString(),
                 CountryTreated = json.GetProperty("country_treated").GetString(),
                 Races = new string[] {""},
                 Outcome = json.GetProperty("outcome").GetString(),
                 OutcomeComputed = json.GetProperty("outcome_computed").GetString(),
-                TreatmentYear = Convert.ToInt32(json.GetProperty("began_treatment_year").GetString())
+                TreatmentYear = treatmentYear
             };
 
             return entry;

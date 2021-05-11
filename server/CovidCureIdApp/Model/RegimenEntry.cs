@@ -46,9 +46,8 @@ namespace CovidCureIdApp.Model
         internal static RegimenEntry From(JsonElement json)
         {
             string ageRange = json.GetProperty("age").GetString();
-            string[] ageParts = ageRange.Split('-');
-            int ageLower = Convert.ToInt32(ageParts[0]);
-            int ageUpper = Convert.ToInt32(ageParts[1].Split(' ')[0]);
+
+            Age age = new Age(ageRange);
 
             // Construct the regimen ID based on the ordered IDs of the drugs in the regimen.
             IEnumerable<Drug> drugs = json.GetProperty("regimens").EnumerateArray().Select(element => {
@@ -58,20 +57,24 @@ namespace CovidCureIdApp.Model
                 };
             }).OrderBy(drug => drug.CureId);
 
+            int treatmentYear = json.GetProperty("began_treatment_year").GetString() == string.Empty?
+                json.GetProperty("pub_year").GetInt32() :
+                Convert.ToInt32(json.GetProperty("began_treatment_year").GetString());
+
             RegimenEntry entry = new RegimenEntry{
                 Id = Guid.NewGuid().ToString(),
                 RegimenId = json.GetProperty("id").GetInt32(),
                 RegimenName = String.Join("+", drugs.Select(d => d.Name)),
                 RegimenDrugs = drugs.ToArray(),
                 CureId = json.GetProperty("id").GetInt32(),
-                AgeLowerBound = ageLower,
-                AgeUpperBound = ageUpper,
+                AgeLowerBound = age.Lower,
+                AgeUpperBound = age.Upper,
                 Gender = json.GetProperty("sex").GetString(),
                 CountryTreated = json.GetProperty("country_treated").GetString(),
                 Races = new string[] {""},
                 Outcome = json.GetProperty("outcome").GetString(),
                 OutcomeComputed = json.GetProperty("outcome_computed").GetString(),
-                TreatmentYear = Convert.ToInt32(json.GetProperty("began_treatment_year").GetString())
+                TreatmentYear = treatmentYear
             };
 
             return entry;

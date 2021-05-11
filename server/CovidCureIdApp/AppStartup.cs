@@ -29,6 +29,7 @@ namespace CovidCureIdApp
 
             builder.Services.AddSingleton<CosmosGateway>();
             builder.Services.AddSingleton<RegimenRepository>();
+            builder.Services.AddSingleton<DrugRepository>();
         }
     }
 }
