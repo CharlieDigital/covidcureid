@@ -30,7 +30,7 @@ namespace CovidCureIdApp.Model
             set { /* Needed for serialization */ }
         }
 
-        public override string PartitionKey => DrugId.ToString();
+        public override string PartitionKey => Guid.NewGuid().ToString();
 
         /// <summary>
         ///     Static factory method to create an instance from a JSON element.
@@ -48,6 +48,8 @@ namespace CovidCureIdApp.Model
                 json.GetProperty("pub_year").GetInt32() :
                 Convert.ToInt32(json.GetProperty("began_treatment_year").GetString());
 
+            string computedOutcome = json.GetProperty("outcome_computed").GetString();
+
             DrugEntry entry = new DrugEntry{
                 Id = Guid.NewGuid().ToString(),
                 DrugId = drugId,
@@ -59,7 +61,10 @@ namespace CovidCureIdApp.Model
                 CountryTreated = json.GetProperty("country_treated").GetString(),
                 Races = new string[] {""},
                 Outcome = json.GetProperty("outcome").GetString(),
-                OutcomeComputed = json.GetProperty("outcome_computed").GetString(),
+                OutcomeComputed = computedOutcome,
+                Improved = computedOutcome.Equals("improved", StringComparison.InvariantCultureIgnoreCase) ? 1 : 0,
+                Deteriorated = computedOutcome.Equals("deteriorated", StringComparison.InvariantCultureIgnoreCase) ? 1 : 0,
+                Undetermined = computedOutcome.Equals("undetermined", StringComparison.InvariantCultureIgnoreCase) ? 1 : 0,
                 TreatmentYear = treatmentYear
             };
 

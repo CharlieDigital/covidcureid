@@ -51,6 +51,21 @@ namespace CovidCureIdApp.Model
         public int TreatmentYear;
 
         /// <summary>
+        ///     This field is used to sum the deteriorated cases.
+        /// </summary>
+        public int Deteriorated;
+
+        /// <summary>
+        ///     This field is used to sum the improved cases.
+        /// </summary>
+        public int Improved;
+
+        /// <summary>
+        ///     This field is used to sum the undetermined cases.
+        /// </summary>
+        public int Undetermined;
+
+        /// <summary>
         ///     The type of the entry for query filtering purposes.
         /// </summary>
         /// <value>A string value indicating whether type is a drug or a regimen.</value>

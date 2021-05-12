@@ -244,5 +244,17 @@ namespace CovidCureIdApp.DataAccess
 
             return response?.FirstOrDefault();
         }
+
+        /// <summary>
+        ///     Executes a direct query against the Cosmos database typically representing an aggregate query.
+        /// </summary>
+        /// <param name="query">The query definition to execute.</param>
+        /// <typeparam name="Tresponse">The type of the response entity which should represent an aggregate</typeparam>
+        /// <typeparam name="Tentity">The type of the entity that is being queried</typeparam>
+        /// <returns>The aggregate responses.</returns>
+        public virtual async Task<List<Tresponse>> Query<Tresponse, Tentity>(QueryDefinition query) where Tentity : DomainEntityBase
+        {
+            return await _cosmos.ExecuteQuery<Tresponse, Tentity>(query);
+        }
     }
 }

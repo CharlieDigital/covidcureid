@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Linq;
 using System.Diagnostics;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -116,6 +117,41 @@ namespace CovidCureIdApp.DataAccess
             _log.LogWarning($"Action returned status [{response.StatusCode.ToString()}] in [{timer.ElapsedMilliseconds}] ms and consumed [{response.RequestCharge}] RU(s).");
 
             return response;
+        }
+
+        /// <summary>
+        ///     Executes a direct query against the cosmos DB returning a single entity result.
+        /// </summary>
+        /// <param name="query">The query definition to execute.</param>
+        /// <typeparam name="Tresponse">The type of the response result item.</typeparam>
+        /// <typeparam name="Tentity">The type of the entity that is being queried.</typeparam>
+        /// <returns>The set of aggregate responses.</returns>
+        public async Task<List<Tresponse>> ExecuteQuery<Tresponse, Tentity>(QueryDefinition query) where Tentity: DomainEntityBase {
+            return await ExecuteQuery<Tresponse, Tentity>(GetContainer<Tentity>(), query);
+        }
+
+        /// <summary>
+        ///     Executes a direct query against the cosmos DB returning a single entity result.
+        /// </summary>
+        /// <param name="container">The container instance.</param>
+        /// <param name="query">The query definition to execute.</param>
+        /// <typeparam name="Tresponse">The type of the response result item.</typeparam>
+        /// <typeparam name="Tentity">The type of the entity that is being queried.</typeparam>
+        /// <returns>The set of aggregate responses.</returns>
+        public async Task<List<Tresponse>> ExecuteQuery<Tresponse, Tentity>(Container container, QueryDefinition query) where Tentity : DomainEntityBase {
+            Stopwatch timer = new Stopwatch();
+
+            timer.Start();
+
+            FeedIterator<Tresponse> iterator = container.GetItemQueryIterator<Tresponse>(query);
+
+            FeedResponse<Tresponse> response = await iterator.ReadNextAsync();
+
+            timer.Stop();
+
+            _log.LogWarning($"Action returned status [{response.StatusCode.ToString()}] in [{timer.ElapsedMilliseconds}] ms and consumed [{response.RequestCharge}] RU(s).");
+
+            return response.ToList();
         }
 
         /// <summary>

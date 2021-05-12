@@ -105,6 +105,10 @@ Before starting the server runtime, you will need to start:
 
 To start the server project, switch into the directory `server/CovidCureIdApp` and run the command `func start --build` to build the server application and start a local runtime.
 
+## API Testing
+
+To test the API in `DataProvider`, you can use `curl`, Postman, or [Huachao Mao's REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).  The latter is recommended as it allows you to create a `.http` file and execute it directly within VS Code.
+
 # Data Processing Logic
 
 The data processing logic flow is described below.
@@ -141,6 +145,14 @@ There are different ways to control the costs associated with the CosmosDB RUs o
 The other alternative is to queue the write operations using either Azure Storage Queues or Azure Service Bus Queues.  For simplicity, we will use the [Azure Storage Queue Concurrency](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#concurrency) controls to effectively throttle throughput to CosmosDB by queuing up the write operations.
 
 For extremely large datasets, this may not work very well due to the limitations of the Storage Queue and the fact that if multiple Function runtimes start, then the write load and throughput will consequently increase beyond our control.  But it is good enough for this scale of data.
+
+# Areas for Improvement
+
+There are many areas for additional development to consider:
+
+* Search across additional parameters embedded in the data including co-morbidities and race
+* Faceted search instead of database-driven search
+* Pre-aggregating the information to improve performance
 
 # References
 
