@@ -146,6 +146,18 @@ The other alternative is to queue the write operations using either Azure Storag
 
 For extremely large datasets, this may not work very well due to the limitations of the Storage Queue and the fact that if multiple Function runtimes start, then the write load and throughput will consequently increase beyond our control.  But it is good enough for this scale of data.
 
+# Deployment
+
+The section below outlines the deployment of the application to Azure.
+
+## Serverless API Deployment
+
+TODO
+
+## Serverless Static Web App Deployment
+
+TODO
+
 # Areas for Improvement
 
 There are many areas for additional development to consider:
@@ -156,9 +168,15 @@ There are many areas for additional development to consider:
 
 # References
 
-* https://cure.ncats.io/explore
-* https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local
-* https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-output
-* https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-how-to
-* https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings
-* https://github.com/Azure/azure-functions-host/wiki/host.json-(v2)
+* General
+  * https://cure.ncats.io/explore
+* `System.Text.Json`
+  * https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-how-to
+* Azure Functions
+  * https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local
+  * https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-cosmosdb-v2-output
+  * https://docs.microsoft.com/en-us/azure/azure-functions/functions-triggers-bindings
+  * https://github.com/Azure/azure-functions-host/wiki/host.json-(v2)
+* Azure Static Web Sites
+  * https://docs.microsoft.com/en-us/azure/static-web-apps/github-actions-workflow
+  * https://docs.microsoft.com/en-us/azure/static-web-apps/application-settings
