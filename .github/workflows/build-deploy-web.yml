@@ -66,5 +66,5 @@ jobs:
           app_location: '/web/dist/spa' # App source code path
           api_location: '/server' # Api source code path - optional
           output_location: '' # Built app content directory - optional
-          skip_build: true
+          skip_app_build: true
           ###### End of Repository/Build Configurations ######
