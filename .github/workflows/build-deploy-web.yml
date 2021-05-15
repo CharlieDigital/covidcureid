@@ -51,7 +51,7 @@ jobs:
 
       - name: Build for production with Quasar CLI
         working-directory: ./web
-        run: npm run prod
+        run: quasar build
 
       #- name: Configure AWS Credentials
       #  uses: aws-actions/configure-aws-credentials@v1
