@@ -24,9 +24,6 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      
-      - name: Switch Directory
-        run: cd web
 
       # Setup node
       - name: Setup Node
@@ -45,12 +42,15 @@ jobs:
             ${{ runner.OS }}-
 
       - name: Install dependencies
+        working-directory: ./web
         run: npm install
 
       - name: Install Quasar CLI
+        working-directory: ./web
         run: npm install -g @quasar/cli
 
       - name: Build for production with Quasar CLI
+        working-directory: ./web
         run: npm run prod
 
       #- name: Configure AWS Credentials
