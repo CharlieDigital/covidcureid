@@ -2,7 +2,7 @@
 
 name: Build and Deploy Web
 
-# Controls when the action will run. 
+# Controls when the action will run.
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
   # push:
@@ -51,7 +51,7 @@ jobs:
 
       - name: Build for production with Quasar CLI
         working-directory: ./web
-        run: quasar build
+        run: API_ENDPOINT=${{ secrets.API_ENDPOINT }} quasar build
 
       # Prepare for deployment of the output to Azure
       # See: https://docs.microsoft.com/en-us/azure/static-web-apps/github-actions-workflow#build-and-deploy

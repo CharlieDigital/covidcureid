@@ -27,6 +27,7 @@ module.exports = configure(function (/* ctx */) {
     boot: [
       'composition-api',
       'axios',
+      'apexchart'
     ],
 
     // https://v1.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
@@ -37,7 +38,7 @@ module.exports = configure(function (/* ctx */) {
     // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
       // 'ionicons-v4',
-      // 'mdi-v5',
+      'mdi-v5',
       // 'fontawesome-v5',
       // 'eva-icons',
       // 'themify',
@@ -45,7 +46,7 @@ module.exports = configure(function (/* ctx */) {
       // 'roboto-font-latin-ext', // this or either 'roboto-font', NEVER both!
 
       'roboto-font', // optional, you are not bound to it
-      'material-icons', // optional, you are not bound to it
+      // 'material-icons', // optional, you are not bound to it
     ],
 
     // Full list of options: https://v1.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
@@ -73,12 +74,15 @@ module.exports = configure(function (/* ctx */) {
       chainWebpack (/* chain */) {
         //
       },
+      env: {
+          API_ENDPOINT: process.env.API_ENDPOINT
+      }
     },
 
     // Full list of options: https://v1.quasar.dev/quasar-cli/quasar-conf-js#Property%3A-devServer
     devServer: {
       https: false,
-      port: 8080,
+      port: 8090,
       open: true // opens browser window automatically
     },
 
@@ -106,7 +110,9 @@ module.exports = configure(function (/* ctx */) {
 
     // animations: 'all', // --- includes all animations
     // https://v1.quasar.dev/options/animations
-    animations: [],
+    animations: [
+        'fadeOut'
+    ],
 
     // https://v1.quasar.dev/quasar-cli/developing-ssr/configuring-ssr
     ssr: {

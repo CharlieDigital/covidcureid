@@ -53,4 +53,4 @@ execute('az cosmosdb database create --db-name CovidCureId --key "C2y6yDjf5/R+ob
 execute('az cosmosdb collection create --db-name CovidCureId --collection-name CaseFiles --key "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==" --url-connection "https://localhost:8081" --partition-key-path /PartitionKey')
 
 // Move the files into Azure Storage
-//execute(`az storage blob upload-batch --destination covidcureid-raw-files --source "${rawDataFileDir}" --pattern "02-*.json" --connection-string "UseDevelopmentStorage=true"`)
+execute(`az storage blob upload-batch --destination covidcureid-raw-files --source "${rawDataFileDir}" --pattern "02-*.json" --connection-string "UseDevelopmentStorage=true"`)

@@ -37,6 +37,6 @@ jobs:
       with:
         app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
         package: '${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}/output'
-        publish-profile: ${{ secrets.AZURE_FUNC_PUBLISH_PROFILE }}
+        publish-profile: ${{ secrets.AZURE_FUNC_PUBLISH_PROFILE }} # Obtain from Azure portal and paste into GH Secrets
 
 # For more samples to get started with GitHub Action workflows to deploy to Azure, refer to https://github.com/Azure/actions-workflow-samples
