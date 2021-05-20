@@ -1,6 +1,6 @@
 # Deploys the API portion of the application to Azure.
 # See: https://github.com/marketplace/actions/azure-functions-action
-name: Deploy DotNet project to Azure Function App
+name: Build and Deploy API
 
 on:
   workflow_dispatch:
