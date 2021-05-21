@@ -122,7 +122,11 @@ export default defineComponent({
         const totalImproved = ref(0)
         const filter = ref('All')
 
-        watch(drug, async (newValue, oldValue) => {
+        watch(regimenDialogOpen, () => {
+            filter.value = 'All'
+        })
+
+        watch(drug, async (newValue) => {
             // Drug changed; retrieve the value via API call.
             age.value = router.currentRoute.params.age
             gender.value = router.currentRoute.params.gender
