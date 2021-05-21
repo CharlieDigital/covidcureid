@@ -143,7 +143,7 @@
                 </q-card-section>
 
                 <q-card-actions>
-                    <q-btn rounded icon="mdi-github" class="full-width" color="teal-6" @click="openURL('https://github.com/CharlieDigital/covidcureid')">Veiw on Github</q-btn>
+                    <q-btn rounded icon="mdi-github" class="full-width" color="teal-6" @click="openURL('https://github.com/CharlieDigital/covidcureid')">View on Github</q-btn>
                 </q-card-actions>
             </q-card>
 
