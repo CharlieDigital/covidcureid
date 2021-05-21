@@ -8,7 +8,7 @@
   "scripts": {
     "lint": "eslint --ext .js,.ts,.vue ./",
     "test": "echo \"No test specified\" && exit 0",
-    "dev": "cross-env API_ENDPOINT=http://localhost:7071 quasar dev"
+    "dev": "cross-env API_ENDPOINT=http://localhost:7071 GA_TOKEN=blank quasar dev"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",

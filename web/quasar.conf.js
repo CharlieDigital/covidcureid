@@ -75,7 +75,8 @@ module.exports = configure(function (/* ctx */) {
         //
       },
       env: {
-          API_ENDPOINT: process.env.API_ENDPOINT
+          API_ENDPOINT: process.env.API_ENDPOINT,
+          GA_TOKEN: process.env.GA_TOKEN
       }
     },
 

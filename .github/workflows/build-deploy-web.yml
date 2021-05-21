@@ -51,7 +51,7 @@ jobs:
 
       - name: Build for production with Quasar CLI
         working-directory: ./web
-        run: API_ENDPOINT=${{ secrets.API_ENDPOINT }} quasar build
+        run: API_ENDPOINT=${{ secrets.API_ENDPOINT }} GA_TOKEN=${{ secrets.GA_TOKEN }} quasar build
 
       # Prepare for deployment of the output to Azure
       # See: https://docs.microsoft.com/en-us/azure/static-web-apps/github-actions-workflow#build-and-deploy
