@@ -2,9 +2,9 @@
     <q-page class="items-center justify-evenly q-px-md q-mb">
         <!--// A Short Intro //-->
         <p class="text-subtitle1 q-my-md text-center">
-            An open source application which extracts data from the COVID specific case data from the
+            An open-source application which extracts COVID specific case data from the
             <a href="https://cure.ncats.io/explore" target="_blank">FDA CURE ID</a> web application
-            and surfaces the data to allow searching by a patient"s age and gender.  This application
+            and surfaces the data to allow searching by a patient's age and gender.  This application
             is neither endorsed by nor associated with the FDA.
         </p>
 
@@ -78,7 +78,13 @@
                         color="teal-6"
                         rounded
                         @click="retrieveCases"
+                        :loading="loading"
                         :disable="gender === '' || age === ''">
+                        <template v-slot:loading>
+                            <q-spinner
+                                color="white"
+                                :thickness="3"/>
+                        </template>
                         Find Cases
                     </q-btn>
                 </div>
@@ -223,6 +229,7 @@ export default defineComponent({
         const age = ref('')
         const criteria = ref<QForm>()
         const chartContainer = ref<HTMLDivElement>()
+        const loading = ref(false)
 
         let drugs = new Array<Drug>() // This will hold the drug IDs
 
@@ -251,7 +258,11 @@ export default defineComponent({
 
             // Retrieve the data from the API endpoint.  The configuration is in the quasar.conf.js file
             // In Github, this should be added as a secret and will be injected at build.
+            loading.value = true
+
             const response = await axios.get<Array<Record>>(`${process.env.API_ENDPOINT}/api/query/drug/by/${ageValue}/${genderValue || 'male'}`)
+
+            loading.value = false
 
             const data = response.data;
 
@@ -331,6 +342,7 @@ export default defineComponent({
 
         return {
             criteria,
+            loading,
             openURL,
             genderOptions,
             gender,
