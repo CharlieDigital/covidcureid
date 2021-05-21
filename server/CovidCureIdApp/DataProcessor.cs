@@ -103,7 +103,7 @@ namespace CovidCureIdApp
         }
 
         /// <summary>
-        ///     Processes a drug entry placed on the queue.  The purpose of the queue is o throttle the writes to the database.
+        ///     Processes a drug entry placed on the queue.  The purpose of the queue is to throttle the writes to the database.
         /// </summary>
         [FunctionName("ProcessDrugEntry")]
         public void ProcessDrugEntry(

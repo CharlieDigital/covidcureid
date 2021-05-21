@@ -28,6 +28,21 @@ namespace CovidCureIdApp.Model
         public Drug[] RegimenDrugs;
 
         /// <summary>
+        ///     Narrative notes on any unusual outcomes for this case.
+        /// </summary>
+        public string Unusual;
+
+        /// <summary>
+        ///     Narrative notes on adverse events associated with this case.
+        /// </summary>
+        public string AdverseEvents;
+
+        /// <summary>
+        ///     Narrative notes on additional info associated with this case.
+        /// </summary>
+        public string AdditionalInfo;
+
+        /// <summary>
         ///     The type of the entry for query filtering purposes.
         /// </summary>
         /// <value>A string value indicating whether type is a drug or a regimen.</value>
@@ -76,6 +91,9 @@ namespace CovidCureIdApp.Model
                 Races = new string[] {""},
                 Outcome = json.GetProperty("outcome").GetString(),
                 OutcomeComputed = computedOutcome,
+                Unusual = json.GetProperty("unusual").GetString(),
+                AdverseEvents = json.GetProperty("adverse_events").GetString(),
+                AdditionalInfo = json.GetProperty("additional_info").GetString(),
                 Improved = computedOutcome.Equals("improved", StringComparison.InvariantCultureIgnoreCase) ? 1 : 0,
                 Deteriorated = computedOutcome.Equals("deteriorated", StringComparison.InvariantCultureIgnoreCase) ? 1 : 0,
                 Undetermined = computedOutcome.Equals("undetermined", StringComparison.InvariantCultureIgnoreCase) ? 1 : 0,

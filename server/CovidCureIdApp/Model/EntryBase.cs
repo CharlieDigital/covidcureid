@@ -6,7 +6,7 @@ namespace CovidCureIdApp.Model
     public abstract class EntryBase : DomainEntityBase
     {
         /// <summary>
-        ///     The root CURe ID that the entry is generated from.
+        ///     The root CURE ID that the entry is generated from.
         /// </summary>
         public int CureId;
 

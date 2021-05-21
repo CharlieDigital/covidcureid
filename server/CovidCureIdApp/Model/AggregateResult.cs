@@ -11,6 +11,11 @@ namespace CovidCureIdApp.Model
         public string DrugName;
 
         /// <summary>
+        ///     The ID of the drug as it exists in CURE.
+        /// </summary>
+        public int DrugId;
+
+        /// <summary>
         ///     The aggregate number of cases that improved.
         /// </summary>
         public int Improved;
