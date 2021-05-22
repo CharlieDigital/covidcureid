@@ -89,16 +89,17 @@
                     </q-btn>
                 </div>
 
-                <div
-                    ref="chartContainer"
-                    v-show="showChart">
+                <div v-show="showChart">
                     <div class="text-caption text-center q-mt-md">Tap a bar to see the case details, regimens, physician notes, and link to the CURE ID entry</div>
-                    <apexchart
-                        height="100%"
-                        type="bar"
-                        :options="chartOptions"
-                        :series="chartSeries">
-                    </apexchart>
+                    <div
+                        ref="chartContainer">
+                        <apexchart
+                            height="100%"
+                            type="bar"
+                            :options="chartOptions"
+                            :series="chartSeries">
+                        </apexchart>
+                    </div>
                 </div>
             </div>
         </q-slide-transition>
@@ -120,6 +121,21 @@
                     <p>Unfortunately, the information is difficult to search and use in any practical way.</p>
                     <p>This application extracts the information from the CURE ID application using REST APIs and feeds the resulting data files into an Azure CosmosDB.</p>
                     <p>The CURE ID database includes a number of other facets which can be incorporated for search including co-morbidities (see the Github repo README for ideas).</p>
+                </q-card-section>
+            </q-card>
+
+            <q-card flat class="col-md-4 col-sm-6 col-xs-12">
+                <q-card-section>
+                    <div class="text-h6">This Project</div>
+                </q-card-section>
+
+                <q-separator inset />
+
+                <q-card-section>
+                    <p>This open source project was inspired by the outbreak of COVID in India in April of 2021.</p>
+                    <p>While there are many challenges in India at the moment, the goal of this project is to surface the information in the CURE ID database so that physicians can see real-world data on which treatments had positive outcomes and which did not given the available treatments on hand by cross-cutting the CURE ID database.</p>
+                    <p>One shortcoming is that the CURE ID database is not heavily trafficked and contains only ~1000 case reports for COVID.</p>
+                    <p>This application is <strong>read only</strong>; in other words, it has no ability to submit new cases to CURE ID.  If you are a physician, you must create an account via CURE ID to submit new cases.</p>
                 </q-card-section>
             </q-card>
 
@@ -147,21 +163,6 @@
                 <q-card-actions>
                     <q-btn rounded icon="mdi-github" class="full-width" color="teal-6" @click="openURL('https://github.com/CharlieDigital/covidcureid')">View on Github</q-btn>
                 </q-card-actions>
-            </q-card>
-
-            <q-card flat class="col-md-4 col-sm-6 col-xs-12">
-                <q-card-section>
-                    <div class="text-h6">This Project</div>
-                </q-card-section>
-
-                <q-separator inset />
-
-                <q-card-section>
-                    <p>This open source project was inspired by the outbreak of COVID in India in April of 2021.</p>
-                    <p>While there are many challenges in India at the moment, the goal of this project is to surface the information in the CURE ID database so that physicians can see real-world data on which treatments had positive outcomes and which did not given the available treatments on hand by cross-cutting the CURE ID database.</p>
-                    <p>One shortcoming is that the CURE ID database is not heavily trafficked and contains only ~1000 case reports for COVID.</p>
-                    <p>This application is <strong>read only</strong>; in other words, it has no ability to submit new cases to CURE ID.  If you are a physician, you must create an account via CURE ID to submit new cases.</p>
-                </q-card-section>
             </q-card>
 
             <q-card flat class="col-12">
