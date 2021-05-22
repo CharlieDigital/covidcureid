@@ -89,13 +89,15 @@
                     </q-btn>
                 </div>
 
-                <div ref="chartContainer">
+                <div
+                    ref="chartContainer"
+                    v-show="showChart">
+                    <div class="text-caption text-center q-mt-md">Tap a bar to see the case details, regimens, physician notes, and link to the CURE ID entry</div>
                     <apexchart
                         height="100%"
                         type="bar"
                         :options="chartOptions"
-                        :series="chartSeries"
-                        v-if="showChart">
+                        :series="chartSeries">
                     </apexchart>
                 </div>
             </div>
@@ -139,7 +141,7 @@
                     <q-chip>C#</q-chip>
                     <q-chip>TypeScript</q-chip>
                     <q-chip>JavaScript</q-chip>
-                    <p class="q-my-md">If you are interested in contributing or forking the code and building your own version, check out the Github repo for more information.</p>
+                    <p class="q-my-md">If you are interested in contributing or forking the code and building your own version (or a private instance), check out the Github repo for more information.</p>
                 </q-card-section>
 
                 <q-card-actions>
@@ -188,7 +190,7 @@
                         <q-avatar>
                             <img src="/images/charles-headshot-color.png"/>
                         </q-avatar>
-                        Charles Chen
+                        CharlieDigital
                     </q-chip>
 
                     <q-chip icon="mdi-linkedin" clickable @click="openURL('https://www.linkedin.com/in/charlescchen/')">
@@ -267,7 +269,11 @@ export default defineComponent({
             const data = response.data;
 
             if (chartContainer.value) {
-                chartContainer.value.style.height = `${data.length * 20}px`
+                let height = data.length * 20
+
+                if (height < 320) height = 320
+
+                chartContainer.value.style.height = `${height}px`
             }
 
             // Sort by the total number of cases.
