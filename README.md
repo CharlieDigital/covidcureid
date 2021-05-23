@@ -105,6 +105,8 @@ Before starting the server runtime, you will need to start:
 
 To start the server project, switch into the directory `server/CovidCureIdApp` and run the command `func start --build` to build the server application and start a local runtime.
 
+To start the web project, switch into the directory `web` and run the command `npm run dev` to build and start the web application.  You will need the Quasar CLI which can be installed via `npm install -g @quasar/cli`.
+
 ## API Testing
 
 To test the API in `DataProvider`, you can use `curl`, Postman, or [Huachao Mao's REST Client](https://marketplace.visualstudio.com/items?itemName=humao.rest-client).  The latter is recommended as it allows you to create a `.http` file and execute it directly within VS Code.
@@ -157,6 +159,22 @@ TODO
 ## Serverless Static Web App Deployment
 
 TODO
+
+## Github Secrets for Actions
+
+The deployment actions are configured in the `.github/workflows` folder in two files which are both configured for manual deployment by default:
+
+1. `build-deploy-api.yml` - this action deploys the Functions backend API
+2. `build-deploy-web.yml` - this action deploys the Static Web App front end
+
+Both require the following secrets to be configured:
+
+|Token|Description|
+|--|--|
+|`API_ENDPOINT`|The URI of the Functions API which is injected into the Static Web App during build|
+|`AZURE_CREDENTIALS`|The credentials configured for publishing to the Static Web App endpoint post build|
+|`AZURE_FUNC_PUBLISH_PROFILE`|The XML formatted publishing profile which contains the credentials and configuration for publishing the Functions app.|
+|`GA_TOKEN`|An optional Google Analytics token to inject to the Static Web App during build|
 
 # Areas for Improvement
 
