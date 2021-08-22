@@ -129,9 +129,7 @@ The `dev` script is defined in `web/package.json` and executes:
 cross-env API_ENDPOINT=http://localhost:7071 GA_TOKEN=blank quasar dev
 ```
 
-This uses the `cross-env` package to allow the command to specify local environment variables for the API endpoint (localhost) and Google Analytics token (blank) to inject at build.  When building via GitHub actions, these are specified as secrets.
-
-See this writeup for more info on the GitHub Actions deployment and configuration of secrets: https://charliedigital.com/2021/05/24/building-covidcureid-com/
+This uses the `cross-env` package to allow the command to specify local environment variables for the API endpoint (localhost) and Google Analytics token (blank) to inject at build.  When building via GitHub actions, these are specified as secrets (see below).
 
 ## API Testing
 
@@ -186,6 +184,24 @@ TODO
 
 TODO
 
+## Github Secrets for Actions
+
+The deployment actions are configured in the `.github/workflows` folder in two files which are both configured for manual deployment by default:
+
+1. `build-deploy-api.yml` - this action deploys the Functions backend API
+2. `build-deploy-web.yml` - this action deploys the Static Web App front end
+
+Both require the following secrets to be configured:
+
+|Token|Description|
+|--|--|
+|`API_ENDPOINT`|The URI of the Functions API which is injected into the Static Web App during build|
+|`AZURE_CREDENTIALS`|The credentials configured for publishing to the Static Web App endpoint post build|
+|`AZURE_FUNC_PUBLISH_PROFILE`|The XML formatted publishing profile which contains the credentials and configuration for publishing the Functions app.|
+|`GA_TOKEN`|An optional Google Analytics token to inject to the Static Web App during build|
+
+See this writeup for more info on the GitHub Actions deployment and configuration of secrets: https://charliedigital.com/2021/05/24/building-covidcureid-com/
+
 # Code Patterns
 
 ## Functions Dependency Injection
@@ -230,7 +246,10 @@ There are many areas for additional development to consider:
 * Azure Static Web Sites
   * https://docs.microsoft.com/en-us/azure/static-web-apps/github-actions-workflow
   * https://docs.microsoft.com/en-us/azure/static-web-apps/application-settings
+<<<<<<< HEAD
 * Vue.js
   * https://vuejs.org/
 * Quasar
   * https://quasar.dev/
+=======
+>>>>>>> fe38fabc6edb3333de43ec0b94d7dc604d07456e
