@@ -16,7 +16,7 @@ namespace CovidCureIdApp.DataAccess
     ///     Cosmos wrapper class for database management.
     /// </summary>
     /// <remarks>
-    ///     https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/CodeSamples
+    ///     https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage
     /// </remarks>
     public class CosmosGateway
     {

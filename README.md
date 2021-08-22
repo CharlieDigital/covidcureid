@@ -216,13 +216,41 @@ Microsoft has many patterns available here: https://github.com/Azure/azure-cosmo
 
 And [this article by Joonas Westin that describes the various mechanisms of querying data in CosmosDB](https://joonasw.net/view/exploring-cosmos-db-sdk-v3).
 
-There are many libraries available via nuget that can be used as well:
+There are many libraries available via nuget that can be used as well to speed up development:
 
 |Nuget Package|GitHub Repo|
 |--|--|
 |[Cosmonaut](https://www.nuget.org/packages/Cosmonaut/3.0.0-preview1)|https://github.com/Elfocrash/Cosmonaut|
 |[DataStore](https://www.nuget.org/packages/DataStore.Providers.CosmosDb/15.5.0-alpha)|https://github.com/anavarro9731/datastore|
 |[CosmosDbRepository](https://www.nuget.org/packages/CosmosDbRepository/)|https://github.com/JohnLTaylor/CosmosDbRepository|
+
+In general, the repository pattern works well with CosmosDB.
+
+## Note on `JOIN`
+
+It is important to understand the purpose of the `JOIN` statement in CosmosDB as used here:
+
+```sql
+SELECT
+    c.Id,
+    c.RegimenName,
+    c.CountryTreated,
+    c.RegimenId,
+    c.OutcomeComputed,
+    c.Unusual,
+    c.AdditionalInfo,
+    c.AdverseEvents
+FROM CaseFiles c
+JOIN r IN c.RegimenDrugs
+WHERE @age >= c.AgeLowerBound
+    AND @age <= c.AgeUpperBound
+    AND LOWER(c.Gender) = @gender
+    AND r.CureId = @drugId
+```
+
+In CosmosDB, the `JOIN` *only operates across a single document*.  What happens in this cases, it that it is creating a product of two parts of the same document to "reshape" the result.  CosmosDB does **not** support `JOIN` operations between documents.
+
+See: https://docs.microsoft.com/en-us/azure/cosmos-db/sql/sql-query-join
 
 # Areas for Improvement
 
@@ -246,10 +274,7 @@ There are many areas for additional development to consider:
 * Azure Static Web Sites
   * https://docs.microsoft.com/en-us/azure/static-web-apps/github-actions-workflow
   * https://docs.microsoft.com/en-us/azure/static-web-apps/application-settings
-<<<<<<< HEAD
 * Vue.js
   * https://vuejs.org/
 * Quasar
   * https://quasar.dev/
-=======
->>>>>>> fe38fabc6edb3333de43ec0b94d7dc604d07456e
