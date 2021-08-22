@@ -32,6 +32,8 @@ We will need the following resources:
 
 However, this codebase is designed to work entirely locally without the need for an Azure account.
 
+The code was written with excellent and freely available **Visual Studio Code**.  For working with Vue, I recommend installing the [Vetur extension](https://marketplace.visualstudio.com/items?itemName=octref.vetur).
+
 ## Setup
 
 *These steps cover the initial project setup and are not required for development since they will have already been performed.  The purpose is to provide the background in case you want to create it from scratch.  See **Development** below for the development flow*
