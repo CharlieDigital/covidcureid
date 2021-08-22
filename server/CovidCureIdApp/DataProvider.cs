@@ -2,7 +2,6 @@ using CovidCureIdApp.DataAccess;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.AspNetCore.Http;
@@ -40,24 +39,7 @@ namespace CovidCureIdApp
             string gender,
             ILogger log)
         {
-            // Find all of the drugs entries that match the age range and gender.
-            QueryDefinition query = new QueryDefinition(@"
-                SELECT
-                    c.DrugName,
-                    c.DrugId,
-                    SUM(c.Improved) AS Improved,
-                    SUM(c.Deteriorated) AS Deteriorated,
-                    SUM(c.Undetermined) AS Undetermined
-                FROM c
-                WHERE c.EntryType = 'Drug'
-                    AND @age >= c.AgeLowerBound
-                    AND @age <= c.AgeUpperBound
-                    AND LOWER(c.Gender) = @gender
-                    GROUP BY c.DrugName, c.DrugId")
-                .WithParameter("@age", age)
-                .WithParameter("@gender", gender.ToLowerInvariant());
-
-            List<AggregateResult> results = await _drugs.Query<AggregateResult, DrugEntry>(query);
+            List<AggregateResult> results = await _drugs.GetDrugEntryByAgeAndGender(age, gender);
 
             return new OkObjectResult(results);
         }
@@ -74,28 +56,7 @@ namespace CovidCureIdApp
             int drugId,
             ILogger log)
         {
-            // Find all of the drugs entries that match the age range and gender.
-            QueryDefinition query = new QueryDefinition(@"
-                SELECT
-                    c.Id,
-                    c.RegimenName,
-                    c.CountryTreated,
-                    c.RegimenId,
-                    c.OutcomeComputed,
-                    c.Unusual,
-                    c.AdditionalInfo,
-                    c.AdverseEvents
-                FROM CaseFiles c
-                JOIN r IN c.RegimenDrugs
-                WHERE @age >= c.AgeLowerBound
-                    AND @age <= c.AgeUpperBound
-                    AND LOWER(c.Gender) = @gender
-                    AND r.CureId = @drugId")
-                .WithParameter("@age", age)
-                .WithParameter("@gender", gender.ToLowerInvariant())
-                .WithParameter("@drugId", drugId);
-
-            List<RegimenResult> results = await _drugs.Query<RegimenResult, DrugEntry>(query);
+            List<RegimenResult> results = await _drugs.GetRegimenByDrugAgeAndGender(drugId, age, gender);
 
             return new OkObjectResult(results);
         }

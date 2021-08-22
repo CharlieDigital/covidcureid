@@ -6,17 +6,17 @@ The idea for this application is to extract the information from the CURE ID app
 
 The [CURE ID](https://cure.ncats.io/explore) application contains case report forms (CRFs) for treatments for COVID (and many other diseases) using so-called off-label usage of the drugs.
 
-These are usages for which there may not yet be FDA approval but in some circumstances, the treatments may be the best option available.
+These are usages for which there may not yet be FDA approval but in some circumstances, the treatments may be the best or only option available.
 
 ## Code Organization
 
-The `server` directory contains the files for the server side of the application.  This is built using C# and Azure Functions.
+The `server` directory contains the files for the server side of the application.  This is built using C#/.NET Core and Azure Functions.
 
 The `web` directory contains the front-end UI side of the application.  This is built using Vue and Quasar.
 
 ## Getting Started
 
-If you do not already have an Azure account, you will need to create one and grab the [CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).  Many of the operations will be performed using the CLI.
+If you intend to deploy into Azure and you do not already have an Azure account, you will need to create one and grab the [CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).  Many of the operations will be performed using the CLI.
 
 We will need the following resources:
 
@@ -24,9 +24,11 @@ We will need the following resources:
 2. **Storage** - This is where we will push the raw files AND where we will keep the static application files from `web`. You will also need to grab the [Azure Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) for local testing.
 3. **Functions** - When the files are pushed into Storage, this will trigger a Function to process the file and move the data into CosmosDB.  See the next step.
 
+However, this codebase is designed to work entirely locally without the need for an Azure account.
+
 ## Setup
 
-*These steps cover the initial project setup and are not required for development since they will have already been performed.  See **Development** below for the development flow*
+*These steps cover the initial project setup and are not required for development since they will have already been performed.  The purpose is to provide the background in case you want to create it from scratch.  See **Development** below for the development flow*
 
 The application requires [Azure Functions Core Tools](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local?tabs=windows%2Ccsharp%2Cbash).
 
@@ -46,7 +48,7 @@ az storage container create -n covidcureid-raw-files --connection-string "UseDev
 
 This is where we will import our raw data files which will trigger the Function `ProcessDataFile` to parse the file.
 
-Next, we will initialize the local CosmosDB using the command:
+Next, we will initialize the local CosmosDB using the command (the keys are the standard local keys; replace with your account key when pushing into Azure):
 
 ```
 az cosmosdb database create --db-name CovidCureId --key "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==" --url-connection "https://localhost:8081"
@@ -71,17 +73,24 @@ cd server/data
 npm run fetch
 ```
 
-This executes the script `fetch-data.js` which will execute the REST API calls to retrieve the raw underlying data files.
+This executes the script `server/data/fetch-data.js` which will execute the REST API calls to retrieve the raw underlying data files.
 
-Once the data files have been downloaded, they need to be uploaded into Azure Storage.  This will trigger a function to process each of the files and push data into Azure CosmosDB via a trigger.
+Once the JSON data files have been downloaded, they need to be uploaded into Azure Storage.  This will trigger a function to process each of the files and push data into Azure CosmosDB via a trigger.
 
 The copy operation should be performed after starting the Function on the local emulator (or the package has been deployed):
+
+```
+cd server/CovidCureIdApp
+func start
+```
+
+Then push the files into the storage endpoint:
 
 ```
 az storage blob upload-batch --destination covidcureid-raw-files --source server/data/raw-files --pattern "02-*.json" --connection-string "UseDevelopmentStorage=true"
 ```
 
-The script `load-data.js` will perform the following actions:
+The script `server/data/load-data.js` will perform the following actions:
 
 1. Delete the Azure Storage container `covidcureid-raw-files` which contains the raw JSON files from CURE ID
 2. Delete the Azure CosmosDB database
@@ -103,7 +112,26 @@ Before starting the server runtime, you will need to start:
 1. Azure Storage Emulator: `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator>AzureStorageEmulator.exe start`
 2. Azure CosmosDB Emulator: `C:\Program Files\Azure Cosmos DB Emulator\Microsoft.Azure.Cosmos.Emulator.exe`
 
+(Or alternatively start it from your app launcher (Windows Start Menu))
+
 To start the server project, switch into the directory `server/CovidCureIdApp` and run the command `func start --build` to build the server application and start a local runtime.
+
+To start the front-end, switch into `web` and run the following command
+
+```
+npm install
+npm run dev
+```
+
+The `dev` script is defined in `web/package.json` and executes:
+
+```
+cross-env API_ENDPOINT=http://localhost:7071 GA_TOKEN=blank quasar dev
+```
+
+This uses the `cross-env` package to allow the command to specify local environment variables for the API endpoint (localhost) and Google Analytics token (blank) to inject at build.  When building via GitHub actions, these are specified as secrets.
+
+See this writeup for more info on the GitHub Actions deployment and configuration of secrets: https://charliedigital.com/2021/05/24/building-covidcureid-com/
 
 ## API Testing
 
@@ -158,6 +186,28 @@ TODO
 
 TODO
 
+# Code Patterns
+
+## Functions Dependency Injection
+
+The file `AppStarup.cs` uses [Functions Dependency Injection](https://docs.microsoft.com/en-us/azure/azure-functions/functions-dotnet-dependency-injection) to initialize singleton instances of the Cosmos client and data access components.  Note that the Functions are *non-static* as this allows us to take advantage of the injected repository classes.
+
+## Repository Pattern
+
+This project uses a simple [Repository Data Access Pattern](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) to encapsulate access to the underlying CosmosDB instance and abstracts the interaction with the `CosmosClient`.  The original code was sourced from a Microsoft sample which has now been
+
+Microsoft has many patterns available here: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage
+
+And [this article by Joonas Westin that describes the various mechanisms of querying data in CosmosDB](https://joonasw.net/view/exploring-cosmos-db-sdk-v3).
+
+There are many libraries available via nuget that can be used as well:
+
+|Nuget Package|GitHub Repo|
+|--|--|
+|[Cosmonaut](https://www.nuget.org/packages/Cosmonaut/3.0.0-preview1)|https://github.com/Elfocrash/Cosmonaut|
+|[DataStore](https://www.nuget.org/packages/DataStore.Providers.CosmosDb/15.5.0-alpha)|https://github.com/anavarro9731/datastore|
+|[CosmosDbRepository](https://www.nuget.org/packages/CosmosDbRepository/)|https://github.com/JohnLTaylor/CosmosDbRepository|
+
 # Areas for Improvement
 
 There are many areas for additional development to consider:
@@ -180,3 +230,7 @@ There are many areas for additional development to consider:
 * Azure Static Web Sites
   * https://docs.microsoft.com/en-us/azure/static-web-apps/github-actions-workflow
   * https://docs.microsoft.com/en-us/azure/static-web-apps/application-settings
+* Vue.js
+  * https://vuejs.org/
+* Quasar
+  * https://quasar.dev/
