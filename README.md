@@ -228,7 +228,6 @@ There are many libraries available via nuget that can be used as well to speed u
 
 |Nuget Package|GitHub Repo|
 |--|--|
-|[Cosmonaut](https://www.nuget.org/packages/Cosmonaut/3.0.0-preview1)|https://github.com/Elfocrash/Cosmonaut|
 |[DataStore](https://www.nuget.org/packages/DataStore.Providers.CosmosDb/15.5.0-alpha)|https://github.com/anavarro9731/datastore|
 |[CosmosDbRepository](https://www.nuget.org/packages/CosmosDbRepository/)|https://github.com/JohnLTaylor/CosmosDbRepository|
 
