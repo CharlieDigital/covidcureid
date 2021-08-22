@@ -10,9 +10,15 @@ These are usages for which there may not yet be FDA approval but in some circums
 
 ## Code Organization
 
-The `server` directory contains the files for the server side of the application.  This is built using C#/.NET Core and Azure Functions.
-
-The `web` directory contains the front-end UI side of the application.  This is built using Vue and Quasar.
+* The `server` directory contains the files for the server side of the application.  This is built using C#/.NET Core and Azure Functions.
+  * `server/CovidCureIdApp/DataProcessor.cs` contains the Functions for ingest of the JSON files
+  * `server/CovidCureIdApp/DataProvider.cs` contains the Functions that provide a REST API via `HttpTrigger`s
+  * `server/CovidCureIdApp/DataAccess` contains the data access code (repository pattern described below).
+  * `server/CovidCureIdApp/Model` contains the domain models.
+* The `web` directory contains the front-end UI side of the application.  This is built using Vue and Quasar.
+  * `web/src/pages/Index.vue` contains the Vue Single File Component (SFC) that has the main chart view.
+  * `web/src/components/RegimenDialog.vue` contains the SFC that displays the side panel when a drug is clicked on.
+  * `web/src/components/model.ts` contains the TypeScript models for the front-end.
 
 ## Getting Started
 
