@@ -176,11 +176,11 @@ For extremely large datasets, this may not work very well due to the limitations
 
 The section below outlines the deployment of the application to Azure.
 
-## Serverless API Deployment
+## Serverless API Provisioning
 
 TODO
 
-## Serverless Static Web App Deployment
+## Serverless Static Web App Provisioning
 
 TODO
 
@@ -226,7 +226,7 @@ There are many libraries available via nuget that can be used as well to speed u
 
 In general, the repository pattern works well with CosmosDB.
 
-## Note on `JOIN`
+## Note on `JOIN` in CosmosDB
 
 It is important to understand the purpose of the `JOIN` statement in CosmosDB as used here:
 
@@ -248,7 +248,9 @@ WHERE @age >= c.AgeLowerBound
     AND r.CureId = @drugId
 ```
 
-In CosmosDB, the `JOIN` *only operates across a single document*.  What happens in this cases, it that it is creating a product of two parts of the same document to "reshape" the result.  CosmosDB does **not** support `JOIN` operations between documents.
+In CosmosDB, the `JOIN` *only operates across a single document*.  What happens in this cases, it that it is creating a product of two parts of *the same document* to "reshape" the result.  CosmosDB does **not** support `JOIN` operations *between* different documents.
+
+In this example above, the `CaseFile` is being `JOIN`ed to the `CaseFile.RegimenDrugs` property to create one "row" for each drug.
 
 See: https://docs.microsoft.com/en-us/azure/cosmos-db/sql/sql-query-join
 
