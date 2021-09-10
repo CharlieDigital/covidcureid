@@ -3,6 +3,14 @@
 name: Build and Deploy API
 
 on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+    paths: [ server/CovidCureIdApp/** ]
+  pull_request:
+    branches: [ main ]
+    paths: [ server/CovidCureIdApp/** ]
+
   workflow_dispatch:
 
 # CONFIGURATION

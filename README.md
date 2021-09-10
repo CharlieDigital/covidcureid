@@ -27,7 +27,7 @@ If you intend to deploy into Azure and you do not already have an Azure account,
 We will need the following resources:
 
 1. **CosmosDB** - This is where we will store our data.  You will need to grab the [Azure CosmosDB Emulator](https://docs.microsoft.com/en-us/azure/cosmos-db/local-emulator) for local testing.
-2. **Storage** - This is where we will push the raw files AND where we will keep the static application files from `web`. You will also need to grab the [Azure Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) for local testing.
+2. **Storage** - This is where we will push the raw files AND where we will keep the static application files from `web`. You will also need to grab the [Azure Storage Emulator](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-emulator) for local testing.  The emulator has been deprecated for [Azurite](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azurite)
 3. **Functions** - When the files are pushed into Storage, this will trigger a Function to process the file and move the data into CosmosDB.  See the next step.
 
 However, this codebase is designed to work entirely locally without the need for an Azure account.
@@ -163,6 +163,8 @@ We want to create two types of data entries for each case:
 
 1. **Drug Entry** - the outcome of every case that references this drug whether it is used alone or combined with another drug
 2. **Regimen Entry** - the outcome of a specific regimen of drugs associated with a case
+
+![Data Flow](assets/flow-data-processing/?raw=true "Data Processing Flow")
 
 ## Index Outcome by Drug
 
