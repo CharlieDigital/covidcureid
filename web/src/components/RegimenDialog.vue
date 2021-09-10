@@ -4,7 +4,7 @@
         full-height
         :maximized="$q.screen.lt.md"
         persistent
-        :value="regimenDialogOpen">
+        v-model="visible">
         <q-card
             class="column full-height full-width no-wrap"
             :style="$q.screen.lt.md ? `min-width: ${$q.screen.width}px` : 'min-width: 800px'">
@@ -103,17 +103,20 @@
 <script lang="ts">
 import axios from 'axios'
 import { openURL } from 'quasar'
-import { defineComponent, computed, watch, ref } from '@vue/composition-api'
-import { router } from 'src/router'
-import { rootStore } from 'src/store'
+import { defineComponent, computed, watch, ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { useStore } from 'src/store'
 import { Regimen } from './model'
 
 export default defineComponent({
     name: 'RegimenDialog',
 
     setup() {
-        const regimenDialogOpen = computed(() => rootStore.state.app.regimenDialogOpen)
-        const drug = computed(() => rootStore.state.app.drug || { drugId: 0, drugName: ''})
+        const $store = useStore()
+        const $route = useRoute()
+
+        const visible = computed(() => $route.name === 'RegimenDialog')
+        const drug = computed(() => $store.state.app.drug || { drugId: 0, drugName: ''})
         const openNote = ref(0)
         const regimens = ref<Array<Regimen>>([])
         const age = ref('0')
@@ -122,14 +125,14 @@ export default defineComponent({
         const totalImproved = ref(0)
         const filter = ref('All')
 
-        watch(regimenDialogOpen, () => {
+        watch(visible, () => {
             filter.value = 'All'
         })
 
         watch(drug, async (newValue) => {
             // Drug changed; retrieve the value via API call.
-            age.value = router.currentRoute.params.age
-            gender.value = router.currentRoute.params.gender
+            age.value = $route.params.age as string
+            gender.value = $route.params.gender as string
 
             // Retrieve the data from the API endpoint.  The configuration is in the quasar.conf.js file
             // In Github, this should be added as a secret and will be injected at build.
@@ -147,7 +150,7 @@ export default defineComponent({
         })
 
         return {
-            regimenDialogOpen,
+            visible,
             drug,
             age,
             gender,

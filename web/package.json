@@ -1,7 +1,7 @@
 {
   "name": "covidcureid",
   "version": "0.0.1",
-  "description": "A severless web application to provide the CURE ID COVID data in a more usable format.",
+  "description": "A serverless web application to provide the CURE ID COVID data in a more usable format.",
   "productName": "COVID CURE ID",
   "author": "Charles Chen <chen.charles.c@gmail.com>",
   "private": true,
@@ -12,23 +12,23 @@
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
-    "@vue/composition-api": "^1.0.0-rc.3",
-    "apexcharts": "^3.26.3",
+    "apexcharts": "^3.28.1",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
-    "quasar": "^1.0.0",
-    "vue-apexcharts": "^1.6.1"
+    "cross-env": "^7.0.3",
+    "quasar": "^2.0.0",
+    "vue3-apexcharts": "^1.4.1",
+    "vuex": "^4.0.1"
   },
   "devDependencies": {
-    "@quasar/app": "^2.0.0",
-    "@types/node": "^10.17.15",
+    "@babel/eslint-parser": "^7.13.14",
+    "@quasar/app": "^3.0.0",
+    "@types/node": "^12.20.21",
     "@typescript-eslint/eslint-plugin": "^4.16.1",
     "@typescript-eslint/parser": "^4.16.1",
-    "babel-eslint": "^10.0.1",
-    "cross-env": "^7.0.3",
-    "eslint": "^7.21.0",
+    "eslint": "^7.14.0",
     "eslint-config-prettier": "^8.1.0",
-    "eslint-plugin-vue": "^7.7.0"
+    "eslint-plugin-vue": "^7.0.0"
   },
   "browserslist": [
     "last 10 Chrome versions",
@@ -42,7 +42,7 @@
     "last 5 Opera versions"
   ],
   "engines": {
-    "node": ">= 10.18.1",
+    "node": ">= 12.22.1",
     "npm": ">= 6.13.4",
     "yarn": ">= 1.21.1"
   }

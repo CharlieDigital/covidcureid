@@ -3,9 +3,9 @@ import { StateInterface } from '../index';
 import { AppStateInterface } from './state';
 
 const getters: GetterTree<AppStateInterface, StateInterface> = {
-    someGetter(/* context */) {
-        // your code
-    }
+  someAction (/* context */) {
+    // your code
+  }
 };
 
 export default getters;

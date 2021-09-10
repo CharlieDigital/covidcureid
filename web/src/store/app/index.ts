@@ -5,12 +5,12 @@ import actions from './actions';
 import getters from './getters';
 import mutations from './mutations';
 
-const appModule: Module<AppStateInterface, StateInterface> = {
-    namespaced: true,
-    actions,
-    getters,
-    mutations,
-    state
+const exampleModule: Module<AppStateInterface, StateInterface> = {
+  namespaced: true,
+  actions,
+  getters,
+  mutations,
+  state
 };
 
-export default appModule;
+export default exampleModule;

@@ -206,10 +206,11 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from '@vue/composition-api';
+import { defineComponent, ref } from 'vue';
 import { openURL, QForm } from 'quasar'
 import axios from 'axios'
-import { rootStore } from 'src/store'
+import { useRouter } from 'vue-router'
+import { useStore } from 'src/store'
 
 // Custom components
 import { Option, Drug, Record } from 'components/model'
@@ -222,7 +223,10 @@ export default defineComponent({
         RegimenDialog
     },
 
-    setup(props, { root }) {
+    setup() {
+        const $router = useRouter()
+        const $store = useStore()
+
         const warningDismissed = ref(false)
         const genderOptions = ref([
             { label: 'Female', value: 'female' },
@@ -311,7 +315,7 @@ export default defineComponent({
                     events: {
                         dataPointSelection: async function(event: any, chartContext: any, config: any) {
                             // config has config.dataPointIndex which is the drug.
-                            await root.$router.push({
+                            await $router.push({
                                 name: 'RegimenDialog' ,
                                 params: {
                                     age: ageValue,
@@ -320,7 +324,7 @@ export default defineComponent({
                                 }
                             })
 
-                            await rootStore.dispatch('app/setDrug', drugs[config.dataPointIndex])
+                            await $store.dispatch('app/setDrug', drugs[config.dataPointIndex])
                         }
                     }
                 },

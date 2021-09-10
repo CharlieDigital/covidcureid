@@ -1,8 +1,8 @@
-import VueApexCharts from 'vue-apexcharts'
+import VueApexCharts from 'vue3-apexcharts'
 import { boot } from 'quasar/wrappers'
 
-export default boot(({ Vue }) => {
+export default boot(({ app }) => {
     // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-    Vue.use(VueApexCharts)
-    Vue.component('apexchart', VueApexCharts)
+    app.use(VueApexCharts)
+    app.component('apexchart', VueApexCharts)
 })

@@ -1,39 +1,57 @@
 import { store } from 'quasar/wrappers'
-import Vuex, { Store } from 'vuex'
+import { InjectionKey } from 'vue'
+import {
+  createStore,
+  Store as VuexStore,
+  useStore as vuexUseStore,
+} from 'vuex'
 
-import app from './app';
-import { AppStateInterface } from './app/state';
+import app from './app'
+import { AppStateInterface } from './app/state'
+
+// import example from './module-example'
+// import { ExampleStateInterface } from './module-example/state';
 
 /*
  * If not building with SSR mode, you can
- * directly export the Store instantiation
+ * directly export the Store instantiation;
+ *
+ * The function below can be async too; either use
+ * async/await or return a Promise which resolves
+ * with the Store instance.
  */
 
 export interface StateInterface {
-    // Define your own store structure, using submodules if needed
-    // example: AppStateInterface;
-    // Declared as unknown to avoid linting issue. Best to strongly type as per the line above.
-    app: AppStateInterface
+  // Define your own store structure, using submodules if needed
+  // example: ExampleStateInterface;
+  // Declared as unknown to avoid linting issue. Best to strongly type as per the line above.
+  app: AppStateInterface
 }
 
-let rootStore: Store<StateInterface>
+// provide typings for `this.$store`
+declare module '@vue/runtime-core' {
+  interface ComponentCustomProperties {
+    $store: VuexStore<StateInterface>
+  }
+}
 
-export default store(function ({ Vue }) {
-    Vue.use(Vuex)
+// provide typings for `useStore` helper
+export const storeKey: InjectionKey<VuexStore<StateInterface>> = Symbol('vuex-key')
 
-    const Store = new Vuex.Store<StateInterface>({
-        modules: {
-            app
-        },
+export default store(function (/* { ssrContext } */) {
+  const Store = createStore<StateInterface>({
+    modules: {
+      app
+    },
 
-        // enable strict mode (adds overhead!)
-        // for dev mode only
-        strict: !!process.env.DEBUGGING
-    })
+    // enable strict mode (adds overhead!)
+    // for dev mode and --debug builds only
+    strict: !!process.env.DEBUGGING
+  })
 
-    rootStore = Store
-
-    return Store
+  return Store;
 })
 
-export { rootStore }
+export function useStore() {
+  return vuexUseStore(storeKey)
+}
