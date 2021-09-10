@@ -164,7 +164,7 @@ We want to create two types of data entries for each case:
 1. **Drug Entry** - the outcome of every case that references this drug whether it is used alone or combined with another drug
 2. **Regimen Entry** - the outcome of a specific regimen of drugs associated with a case
 
-![Data Flow](assets/flow-data-processing/?raw=true "Data Processing Flow")
+![Data Flow](assets/flow-data-processing.png?raw=true "Data Processing Flow")
 
 ## Index Outcome by Drug
 
