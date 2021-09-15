@@ -1,5 +1,7 @@
 # covidcureid
 
+https://www.covidcureid.com
+
 ## Overview
 
 The idea for this application is to extract the information from the CURE ID application which is managed by the FDA.
@@ -74,7 +76,7 @@ az storage queue create --name covidcureid-queue-drug --connection-string "UseDe
 
 ## Downloading/Refreshing Data Files
 
-Use the following command to grab the latest set of data files
+Use the following command to grab the latest set of data files from CURE ID
 
 ```
 cd server/data
@@ -137,7 +139,9 @@ The `dev` script is defined in `web/package.json` and executes:
 cross-env API_ENDPOINT=http://localhost:7071 GA_TOKEN=blank quasar dev
 ```
 
-This uses the `cross-env` package to allow the command to specify local environment variables for the API endpoint (localhost) and Google Analytics token (blank) to inject at build.  When building via GitHub actions, these are specified as secrets (see below).
+This uses the `cross-env` package to allow the command to specify local environment variables for the API endpoint (localhost) and Google Analytics token (blank) to inject at build.  When building via GitHub actions, `cross-env` allows using Linux runners instead of Windows.  The values injected at build are configured as secrets in GitHub and documented below.
+
+(See the `.github\workflows` directory for the actions)
 
 ## API Testing
 
@@ -168,7 +172,7 @@ We want to create two types of data entries for each case:
 
 ## Index Outcome by Drug
 
-The first step is to index the outcome of each drug.  Each case may reference multiple drugs, but we want to create a `DrugEntry` based on the specific drug whether used in combination or on its own
+The first step is to index the outcome of each drug.  Each case may reference multiple drugs, but we want to create a `DrugEntry` based on the specific drug whether used in combination or on its own.
 
 ## Index Outcome by Regimen
 
@@ -220,7 +224,7 @@ The file `AppStarup.cs` uses [Functions Dependency Injection](https://docs.micro
 
 ## Repository Pattern
 
-This project uses a simple [Repository Data Access Pattern](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) to encapsulate access to the underlying CosmosDB instance and abstracts the interaction with the `CosmosClient`.  The original code was sourced from a Microsoft sample which has now been
+This project uses a simple [Repository Data Access Pattern](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design) to encapsulate access to the underlying CosmosDB instance and abstracts the interaction with the `CosmosClient`.  The original code was sourced from a Microsoft sample which has now been retired.
 
 Microsoft has many patterns available here: https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage
 
@@ -257,7 +261,7 @@ WHERE @age >= c.AgeLowerBound
     AND r.CureId = @drugId
 ```
 
-In CosmosDB, the `JOIN` *only operates across a single document*.  What happens in this cases, it that it is creating a product of two parts of *the same document* to "reshape" the result.  CosmosDB does **not** support `JOIN` operations *between* different documents.
+In CosmosDB, the `JOIN` *only operates across a single document*.  What happens in this case is that it is creating a product of two parts of *the same document* to "reshape" the result.  CosmosDB does **not** support `JOIN` operations *between* different documents.
 
 In this example above, the `CaseFile` is being `JOIN`ed to the `CaseFile.RegimenDrugs` property to create one "row" for each drug.
 
