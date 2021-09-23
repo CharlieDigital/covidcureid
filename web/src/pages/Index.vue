@@ -29,8 +29,8 @@
                 </template>
                 <p class="text-subtitle1">
                     <strong>Disclaimer</strong>: this website is not meant to be used in place of professional medical evaluation and treatment.  The contents
-                    of this website are purely informational and the information has not been verified by the FDA.  Consult your physican if you believe
-                    you are showing symptoms of COVID.
+                    of this website are purely informational and the information has not been verified by the FDA.  Get vaccinated and consult your physican if
+                    you believe you are showing symptoms of COVID.
                 </p>
                 <p class="text-subtitle1">covidcureid.com is a third party application and is not associated with the FDA or the CURE ID application; it is not endorsed by the FDA.</p>
                 <p class="text-subtitle1">
@@ -132,7 +132,7 @@
                 <q-separator inset />
 
                 <q-card-section>
-                    <p>This open source project was inspired by the outbreak of COVID in India in April of 2021.</p>
+                    <p>This open source project was inspired by the outbreak of COVID in India in April of 2021 prior to the wide availability of the vaccine.</p>
                     <p>While there are many challenges in India at the moment, the goal of this project is to surface the information in the CURE ID database so that physicians can see real-world data on which treatments had positive outcomes and which did not given the available treatments on hand by cross-cutting the CURE ID database.</p>
                     <p>One shortcoming is that the CURE ID database is not heavily trafficked and contains only ~1000 case reports for COVID.</p>
                     <p>This application is <strong>read only</strong>; in other words, it has no ability to submit new cases to CURE ID.  If you are a physician, you must create an account via CURE ID to submit new cases.</p>
