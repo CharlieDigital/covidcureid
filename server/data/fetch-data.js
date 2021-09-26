@@ -27,7 +27,7 @@
 
     // And then for each treatment, we retrive the list of possible combinations.
     for(const treatment of treatmentsResult) {
-        if (!(treatment.id === 11388 || treatment.id === 11364)) {
+        if ((treatment.id === 11388 || treatment.id === 11364)) {
             continue
         }
 
