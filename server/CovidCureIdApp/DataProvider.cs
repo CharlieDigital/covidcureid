@@ -56,7 +56,7 @@ namespace CovidCureIdApp
             int drugId,
             ILogger log)
         {
-            List<RegimenResult> results = await _drugs.GetRegimenByDrugAgeAndGender(drugId, age, gender);
+            List<RegimenResult> results = await _regimens.GetRegimenByDrugAgeAndGender(drugId, age, gender);
 
             return new OkObjectResult(results);
         }
