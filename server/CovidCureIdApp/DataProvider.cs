@@ -34,7 +34,7 @@ namespace CovidCureIdApp
         /// <returns>A result which indicates the drug records matching the age and gender of the subject showing aggregate counts of improvement or deterioration.</returns>
         [FunctionName("QueryByDrugs")]
         public async Task<IActionResult> QueryByDrugs(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "query/drug/by/{age}/{gender}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "query/drug/by/{age:int}/{gender}")] HttpRequest req,
             int age,
             string gender,
             ILogger log)
@@ -50,7 +50,7 @@ namespace CovidCureIdApp
         /// <returns>A result set which contains the list of regimens corresponding to the given drug.</returns>
         [FunctionName("QueryByRegimen")]
         public async Task<IActionResult> QueryByRegimen(
-            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "query/regimen/by/{age}/{gender}/{drugId}")] HttpRequest req,
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "query/regimen/by/{age:int}/{gender}/{drugId:int}")] HttpRequest req,
             int age,
             string gender,
             int drugId,
