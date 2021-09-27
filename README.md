@@ -281,6 +281,7 @@ There are many areas for additional development to consider:
 
 * General
   * https://cure.ncats.io/explore
+  * https://www.fda.gov/drugs/science-and-research-drugs/cure-id-app-lets-clinicians-report-novel-uses-existing-drugs
 * `System.Text.Json`
   * https://docs.microsoft.com/en-us/dotnet/standard/serialization/system-text-json-how-to
 * Azure Functions
