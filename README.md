@@ -1,6 +1,8 @@
 # covidcureid
 
-https://www.covidcureid.com
+See it here: https://www.covidcureid.com
+
+Read about the project: https://charliedigital.com/2021/05/24/building-covidcureid-com/
 
 ## Overview
 
