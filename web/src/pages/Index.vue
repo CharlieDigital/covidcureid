@@ -121,6 +121,7 @@
                     <p>Unfortunately, the information is difficult to search and use in any practical way.</p>
                     <p>This application extracts the information from the CURE ID application using REST APIs and feeds the resulting data files into an Azure CosmosDB.</p>
                     <p>The CURE ID database includes a number of other facets which can be incorporated for search including co-morbidities (see the Github repo README for ideas).</p>
+                    <p>Hello from AzureServerlessConf!</p>
                 </q-card-section>
             </q-card>
 
