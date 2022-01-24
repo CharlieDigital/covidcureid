@@ -269,6 +269,20 @@ In this example above, the `CaseFile` is being `JOIN`ed to the `CaseFile.Regimen
 
 See: https://docs.microsoft.com/en-us/azure/cosmos-db/sql/sql-query-join
 
+# Updating to .NET 6
+
+If you're looking for the .NET Core 3.1 build, there is a separate branch.
+
+The main branch has been updated to .NET 6.
+
+For detailed instructions, see this [Microsoft documentation](https://docs.microsoft.com/en-us/azure/azure-functions/functions-versions?tabs=in-process%2Cv4&pivots=programming-language-csharp#migrating-from-3x-to-4x).
+
+1. Update the `.csproj`
+   1. Set `TargetFramework` to `net6.0` from `netcoreapp3.1`
+   2. Set `AzureFucntionsVersion` to `v4` from `v3`
+   3. Reinstall and update dependencies to latest version using `dotnet add package {PACKAGE_NAME}`
+2. Run `az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -n <APP_NAME> -g <RESOURCE_GROUP_NAME>`
+
 # Areas for Improvement
 
 There are many areas for additional development to consider:

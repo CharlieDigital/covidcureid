@@ -1,18 +1,17 @@
-﻿namespace CovidCureIdApp.DataAccess.Support
+﻿namespace CovidCureIdApp.DataAccess.Support;
+
+/// <summary>
+///     Used to specify the sort direction for repository queries.
+/// </summary>
+public enum SortDirection
 {
     /// <summary>
-    ///     Used to specify the sort direction for repository queries.
+    ///     Sort ascending order.
     /// </summary>
-    public enum SortDirection
-    {
-        /// <summary>
-        ///     Sort ascending order.
-        /// </summary>
-        Ascending,
+    Ascending,
 
-        /// <summary>
-        ///     Sort descending order.
-        /// </summary>
-        Descending
-    }
+    /// <summary>
+    ///     Sort descending order.
+    /// </summary>
+    Descending
 }
